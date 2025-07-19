@@ -39,7 +39,7 @@ const SkillsSection = () => {
           <div className="flex flex-wrap justify-center gap-8 md:gap-12">
             {skills.map((skill) => (
               <div key={skill.name} className="group flex flex-col items-center gap-2 text-center">
-                <div className="text-muted-foreground group-hover:text-primary transition-colors duration-300">
+                <div className="text-muted-foreground group-hover:text-primary transition-colors duration-300 transform group-hover:-translate-y-1 motion-safe:group-hover:animate-spin-slow">
                   {skill.icon}
                 </div>
                 <p className="text-sm font-medium text-muted-foreground group-hover:text-primary transition-colors duration-300">{skill.name}</p>
