@@ -3,36 +3,119 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Github, ExternalLink } from 'lucide-react';
 import { useLanguage } from '@/context/language-context';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 const ProjectsSection = () => {
   const { t } = useLanguage();
   
-  const projects = [
+  const webDesignProjects = [
     {
-      title: t('projects.project1.title'),
-      description: t('projects.project1.description'),
+      title: t('projects.webDesign.project1.title'),
+      description: t('projects.webDesign.project1.description'),
+      image: 'https://placehold.co/600x400.png',
+      imageHint: 'e-commerce website design',
+      githubUrl: '#',
+      liveUrl: '#',
+    },
+    {
+      title: t('projects.webDesign.project2.title'),
+      description: t('projects.webDesign.project2.description'),
+      image: 'https://placehold.co/600x400.png',
+      imageHint: 'portfolio design figma',
+      githubUrl: '#',
+      liveUrl: '#',
+    },
+    {
+      title: t('projects.webDesign.project3.title'),
+      description: t('projects.webDesign.project3.description'),
+      image: 'https://placehold.co/600x400.png',
+      imageHint: 'landing page mockup',
+      githubUrl: '#',
+      liveUrl: '#',
+    },
+    {
+      title: t('projects.webDesign.project4.title'),
+      description: t('projects.webDesign.project4.description'),
+      image: 'https://placehold.co/600x400.png',
+      imageHint: 'mobile app ui',
+      githubUrl: '#',
+      liveUrl: '#',
+    },
+  ];
+
+  const webDevelopmentProjects = [
+    {
+      title: t('projects.webDevelopment.project1.title'),
+      description: t('projects.webDevelopment.project1.description'),
       image: 'https://placehold.co/600x400.png',
       imageHint: 'web application screenshot',
       githubUrl: '#',
       liveUrl: '#',
     },
     {
-      title: t('projects.project2.title'),
-      description: t('projects.project2.description'),
+      title: t('projects.webDevelopment.project2.title'),
+      description: t('projects.webDevelopment.project2.description'),
       image: 'https://placehold.co/600x400.png',
       imageHint: 'dashboard analytics',
       githubUrl: '#',
       liveUrl: '#',
     },
     {
-      title: t('projects.project3.title'),
-      description: t('projects.project3.description'),
+      title: t('projects.webDevelopment.project3.title'),
+      description: t('projects.webDevelopment.project3.description'),
       image: 'https://placehold.co/600x400.png',
-      imageHint: 'mobile app interface',
+      imageHint: 'blog platform react',
       githubUrl: '#',
       liveUrl: '#',
     },
+    {
+        title: t('projects.webDevelopment.project4.title'),
+        description: t('projects.webDevelopment.project4.description'),
+        image: 'https://placehold.co/600x400.png',
+        imageHint: 'saas application interface',
+        githubUrl: '#',
+        liveUrl: '#',
+      },
   ];
+
+  const renderProjectGrid = (projects: any[]) => (
+    <div className="mx-auto grid gap-8 pt-12 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+      {projects.map((project) => (
+         <Card key={project.title} className="group overflow-hidden rounded-xl shadow-sm hover:shadow-xl transition-all duration-300">
+            <CardContent className="p-0">
+                <div className="overflow-hidden">
+                    <Image
+                    src={project.image}
+                    alt={`Captura de pantalla de ${project.title}`}
+                    width={600}
+                    height={400}
+                    className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500"
+                    data-ai-hint={project.imageHint}
+                    />
+                </div>
+            </CardContent>
+            <div className="p-6 bg-card">
+                <h3 className="font-headline text-xl font-bold mb-2">{project.title}</h3>
+                <p className="text-muted-foreground text-sm mb-4 min-h-[40px]">{project.description}</p>
+                <div className="flex justify-start gap-4">
+                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                        <Button variant="outline" size="sm">
+                        <Github className="mr-2 h-4 w-4" />
+                        {t('projects.github')}
+                        </Button>
+                    </a>
+                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                        <Button size="sm">
+                        <ExternalLink className="mr-2 h-4 w-4" />
+                        {t('projects.demo')}
+                        </Button>
+                    </a>
+                </div>
+            </div>
+        </Card>
+      ))}
+    </div>
+  );
 
   return (
     <section id="projects" className="w-full py-16 md:py-24 lg:py-32 bg-secondary/50 dark:bg-secondary/20">
@@ -46,42 +129,20 @@ const ProjectsSection = () => {
             </p>
           </div>
         </div>
-        <div className="mx-auto grid gap-8 py-12 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project) => (
-             <Card key={project.title} className="group overflow-hidden rounded-xl shadow-sm hover:shadow-xl transition-all duration-300">
-                <CardContent className="p-0">
-                    <div className="overflow-hidden">
-                        <Image
-                        src={project.image}
-                        alt={`Captura de pantalla de ${project.title}`}
-                        width={600}
-                        height={400}
-                        className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500"
-                        data-ai-hint={project.imageHint}
-                        />
-                    </div>
-                </CardContent>
-                <div className="p-6 bg-card">
-                    <h3 className="font-headline text-xl font-bold mb-2">{project.title}</h3>
-                    <p className="text-muted-foreground text-sm mb-4">{project.description}</p>
-                    <div className="flex justify-start gap-4">
-                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                            <Button variant="outline" size="sm">
-                            <Github className="mr-2 h-4 w-4" />
-                            {t('projects.github')}
-                            </Button>
-                        </a>
-                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                            <Button size="sm">
-                            <ExternalLink className="mr-2 h-4 w-4" />
-                            {t('projects.demo')}
-                            </Button>
-                        </a>
-                    </div>
-                </div>
-            </Card>
-          ))}
-        </div>
+
+        <Tabs defaultValue="development" className="w-full max-w-4xl mx-auto pt-10">
+          <TabsList className="grid w-full grid-cols-2">
+            <TabsTrigger value="development">{t('projects.tabs.development')}</TabsTrigger>
+            <TabsTrigger value="design">{t('projects.tabs.design')}</TabsTrigger>
+          </TabsList>
+          <TabsContent value="development">
+            {renderProjectGrid(webDevelopmentProjects)}
+          </TabsContent>
+          <TabsContent value="design">
+            {renderProjectGrid(webDesignProjects)}
+          </TabsContent>
+        </Tabs>
+
       </div>
     </section>
   );

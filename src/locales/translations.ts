@@ -71,18 +71,46 @@ const translations = {
     projects: {
       badge: 'Proyectos',
       title: 'Mi Trabajo Reciente',
-      subtitle: 'Aquí hay algunos de los proyectos en los que he trabajado.',
-      project1: {
-        title: 'Proyecto Uno',
-        description: 'Una breve descripción del proyecto, las tecnologías utilizadas y el propósito del mismo. Mantenlo conciso e informativo.',
+      subtitle: 'Aquí hay algunos de los proyectos en los que he trabajado, separados por mi rol principal.',
+      tabs: {
+        development: 'Desarrollo Web',
+        design: 'Diseño Web',
       },
-      project2: {
-        title: 'Proyecto Dos',
-        description: 'Otra descripción de un proyecto increíble. Destaca los desafíos que superaste y lo que aprendiste.',
+      webDevelopment: {
+        project1: {
+          title: 'Aplicación de Tareas con React',
+          description: 'Una app completa para gestionar tareas con autenticación y base de datos en tiempo real, construida con React y Firebase.',
+        },
+        project2: {
+          title: 'Dashboard de Análisis con Next.js',
+          description: 'Dashboard interactivo para la visualización de datos, utilizando Next.js para SSR y Recharts para los gráficos.',
+        },
+        project3: {
+          title: 'Plataforma de Blogging',
+          description: 'Un blog con todas las funciones, panel de administrador y generación de sitios estáticos (SSG) para un rendimiento óptimo.',
+        },
+        project4: {
+          title: 'SaaS para Gestión de Proyectos',
+          description: 'Interfaz para una aplicación SaaS, centrándome en componentes reutilizables y un estado global eficiente con Zustand.',
+        },
       },
-      project3: {
-        title: 'Proyecto Tres',
-        description: 'Este proyecto muestra la habilidad X. Fue construido con Y y desplegado en Z. Muy impresionante.',
+      webDesign: {
+        project1: {
+          title: 'Diseño de E-commerce de Moda',
+          description: 'Prototipo de alta fidelidad en Figma para una tienda online, centrado en la experiencia de usuario y la conversión.',
+        },
+        project2: {
+          title: 'Rediseño de Portafolio para Fotógrafo',
+          description: 'Concepto visual y prototipo interactivo para un fotógrafo profesional, destacando su trabajo con un diseño minimalista.',
+        },
+        project3: {
+          title: 'Maqueta de Landing Page para App',
+          description: 'Diseño de una landing page atractiva y persuasiva para una aplicación móvil, desde el wireframe hasta el diseño final.',
+        },
+        project4: {
+          title: 'UI Kit para Aplicación Móvil',
+          description: 'Creación de un sistema de diseño completo en Figma, incluyendo componentes, tipografía y paleta de colores.',
+        },
       },
       github: 'GitHub',
       demo: 'Ver Demo'
@@ -189,18 +217,46 @@ const translations = {
     projects: {
       badge: 'Projects',
       title: 'My Recent Work',
-      subtitle: 'Here are some of the projects I have worked on.',
-      project1: {
-        title: 'Project One',
-        description: 'A brief description of the project, the technologies used, and its purpose. Keep it concise and informative.',
+      subtitle: 'Here are some of the projects I have worked on, separated by my main role.',
+      tabs: {
+        development: 'Web Development',
+        design: 'Web Design',
       },
-      project2: {
-        title: 'Project Two',
-        description: 'Another description of an amazing project. Highlight the challenges you overcame and what you learned.',
+      webDevelopment: {
+        project1: {
+          title: 'Task Management App with React',
+          description: 'A complete to-do app with authentication and a real-time database, built with React and Firebase.',
+        },
+        project2: {
+          title: 'Analytics Dashboard with Next.js',
+          description: 'Interactive dashboard for data visualization, using Next.js for SSR and Recharts for the charts.',
+        },
+        project3: {
+          title: 'Blogging Platform',
+          description: 'A full-featured blog with an admin panel and static site generation (SSG) for optimal performance.',
+        },
+        project4: {
+          title: 'SaaS for Project Management',
+          description: 'Interface for a SaaS application, focusing on reusable components and efficient global state with Zustand.',
+        },
       },
-      project3: {
-        title: 'Project Three',
-        description: 'This project showcases X skill. It was built with Y and deployed on Z. Very impressive.',
+      webDesign: {
+        project1: {
+          title: 'Fashion E-commerce Design',
+          description: 'High-fidelity prototype in Figma for an online store, focusing on user experience and conversion.',
+        },
+        project2: {
+          title: 'Portfolio Redesign for Photographer',
+          description: 'Visual concept and interactive prototype for a professional photographer, highlighting their work with a minimalist design.',
+        },
+        project3: {
+          title: 'Landing Page Mockup for App',
+          description: 'Design of an attractive and persuasive landing page for a mobile app, from wireframe to final design.',
+        },
+        project4: {
+          title: 'UI Kit for Mobile Application',
+          description: 'Creation of a complete design system in Figma, including components, typography, and color palette.',
+        },
       },
       github: 'GitHub',
       demo: 'View Demo'
