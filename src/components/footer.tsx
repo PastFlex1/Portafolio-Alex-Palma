@@ -1,24 +1,23 @@
-import { Github, Linkedin, Code2 } from 'lucide-react';
+import { Code2, Github, Linkedin } from 'lucide-react';
 import Link from 'next/link';
-import { Button } from './ui/button';
 
 const Footer = () => {
   return (
-    <footer className="w-full py-6 bg-background">
-      <div className="container mx-auto flex flex-col items-center justify-between gap-4 px-4 md:flex-row md:px-6">
+    <footer className="w-full py-8 border-t bg-background">
+      <div className="container mx-auto flex flex-col items-center justify-between gap-6 px-4 md:flex-row md:px-6">
         <Link href="/" className="flex items-center gap-2" aria-label="Volver al inicio">
-            <Code2 className="h-6 w-6 text-primary" />
-            <span className="font-bold font-headline">DevFolio</span>
+            <Code2 className="h-7 w-7 text-primary" />
+            <span className="font-bold text-lg font-headline">DevFolio</span>
         </Link>
         <p className="text-sm text-muted-foreground">
-          &copy; {new Date().getFullYear()} Alex Palma. Todos los derechos reservados.
+          &copy; {new Date().getFullYear()} Alex Palma. Diseñado y construido con ❤️.
         </p>
-        <div className="flex items-center gap-4">
-          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-            <Button variant="ghost" size="icon"><Github className="h-5 w-5" /></Button>
+        <div className="flex items-center gap-5">
+          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-muted-foreground hover:text-primary transition-colors">
+            <Github className="h-5 w-5" />
           </a>
-          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <Button variant="ghost" size="icon"><Linkedin className="h-5 w-5" /></Button>
+          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-muted-foreground hover:text-primary transition-colors">
+            <Linkedin className="h-5 w-5" />
           </a>
         </div>
       </div>
