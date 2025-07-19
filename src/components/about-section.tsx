@@ -11,11 +11,11 @@ const AboutSection = () => {
               <CardContent className="p-0">
                 <Image
                   src="https://placehold.co/400x400.png"
-                  alt="Retrato profesional"
+                  alt="Retrato profesional de Alex Palma"
                   width={400}
                   height={400}
                   className="object-cover"
-                  data-ai-hint="professional portrait"
+                  data-ai-hint="professional portrait ecuadorian"
                 />
               </CardContent>
             </Card>
@@ -24,11 +24,11 @@ const AboutSection = () => {
             <div className="space-y-2">
               <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl">Sobre Mí</h2>
               <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed mx-auto lg:mx-0">
-                Soy un desarrollador de software con una gran pasión por crear interfaces de usuario intuitivas y experiencias digitales memorables. Aunque estoy al principio de mi carrera, estoy ansioso por aprender, crecer y contribuir a proyectos desafiantes. Me encanta resolver problemas y transformar ideas complejas en código elegante y funcional.
+                ¡Hola! Soy Alex Palma, un desarrollador y diseñador web ecuatoriano de 19 años. Me apasiona crear interfaces de usuario intuitivas y experiencias digitales memorables. He trabajado como freelancer y para empresas, lo que me ha dado una base sólida en el desarrollo práctico.
               </p>
             </div>
             <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed mx-auto lg:mx-0">
-              Cuando no estoy programando, disfruto explorando nuevas tecnologías, colaborando en proyectos de código abierto y tomando una buena taza de café.
+              Actualmente, estoy en el tercer semestre de Ingeniería de Software en la Universidad Politécnica Salesiana, donde sigo perfeccionando mis habilidades para convertir ideas complejas en código elegante y funcional.
             </p>
           </div>
         </div>

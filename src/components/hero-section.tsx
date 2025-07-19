@@ -9,10 +9,10 @@ const HeroSection = () => {
           <div className="flex flex-col items-center justify-center space-y-4">
             <div className="space-y-2">
               <h1 className="font-headline text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
-                Tu Nombre Aquí
+                Alex Palma
               </h1>
               <p className="mx-auto max-w-[700px] text-lg text-muted-foreground md:text-xl">
-                Desarrollador Web Junior | Apasionado por la tecnología y el diseño limpio.
+                Desarrollador y Diseñador Web | Estudiante de Ingeniería de Software.
               </p>
             </div>
             <div className="space-x-4">

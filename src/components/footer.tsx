@@ -11,7 +11,7 @@ const Footer = () => {
             <span className="font-bold font-headline">DevFolio</span>
         </Link>
         <p className="text-sm text-muted-foreground">
-          &copy; {new Date().getFullYear()} Tu Nombre Aquí. Todos los derechos reservados.
+          &copy; {new Date().getFullYear()} Alex Palma. Todos los derechos reservados.
         </p>
         <div className="flex items-center gap-4">
           <a href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub">

@@ -3,7 +3,7 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: 'Devfolio Starter',
+  title: 'Alex Palma | Desarrollador de Software',
   description: 'Un portafolio personal para un desarrollador junior.',
 };
 

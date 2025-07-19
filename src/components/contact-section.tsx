@@ -113,7 +113,7 @@ const ContactSection = () => {
             <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 <Button variant="outline" size="icon"><Linkedin className="h-5 w-5" /></Button>
             </a>
-            <a href="mailto:tuemail@ejemplo.com" aria-label="Email">
+            <a href="mailto:alex.palma@example.com" aria-label="Email">
                 <Button variant="outline" size="icon"><Mail className="h-5 w-5" /></Button>
             </a>
         </div>

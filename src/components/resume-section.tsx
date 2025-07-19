@@ -12,7 +12,7 @@ const ResumeSection = () => {
               ¿Interesado en conocer más sobre mi experiencia y habilidades? Descarga mi currículum para obtener una visión completa.
             </p>
           </div>
-          <a href="/resume.pdf" download="CV-TuNombre.pdf">
+          <a href="/resume.pdf" download="CV-AlexPalma.pdf">
             <Button size="lg" className="mt-4">
               <Download className="mr-2 h-5 w-5" />
               Descargar CV
