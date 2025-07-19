@@ -21,11 +21,6 @@ const timelineData = [
     title: 'Ingeniero Frontend en NextGen Solutions',
     description: 'Aquí trabajé con Next.js para construir aplicaciones web de alto rendimiento. Fui responsable de optimizar el renderizado del lado del servidor (SSR) y de mejorar las métricas de Core Web Vitals, resultando en una carga de página un 30% más rápida.',
   },
-  {
-    year: 'Principios 2025 - Actualidad',
-    title: 'Especialista Frontend en Innovatech AI',
-    description: 'Actualmente, estoy explorando la intersección del frontend con la IA. Utilizo Genkit para integrar funcionalidades de IA generativa en las interfaces, creando experiencias de usuario más inteligentes y personalizadas. Lidero la implementación de nuevas características del lado del cliente.',
-  },
 ];
 
 const ExperienceTimelineSection = () => {
