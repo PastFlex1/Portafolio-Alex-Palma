@@ -1,13 +1,24 @@
-import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useLanguage } from '@/context/language-context';
+import {
+  SiReact, SiTypescript, SiJavascript, SiNextdotjs, SiFigma, SiGithub,
+  SiFlutter, SiCss3, SiTailwindcss, SiVite, SiNpm, SiSass, SiHtml5
+} from '@icons-pack/react-simple-icons';
 
-const skillsData = {
-  'languages': ['JavaScript (ES6+)', 'TypeScript', 'HTML5', 'CSS3/Sass', 'SQL'],
-  'frameworks': ['React', 'Next.js', 'Node.js', 'Express', 'Tailwind CSS', 'ShadCN UI'],
-  'tools': ['Git y GitHub', 'Docker', 'Firebase', 'Vercel', 'Figma', 'Postman'],
-  'db': ['MongoDB', 'PostgreSQL', 'REST APIs', 'Scrum', 'Diseño UI/UX'],
-};
+const skills = [
+  { name: 'React', icon: <SiReact size={40} /> },
+  { name: 'TypeScript', icon: <SiTypescript size={40} /> },
+  { name: 'JavaScript', icon: <SiJavascript size={40} /> },
+  { name: 'Next.js', icon: <SiNextdotjs size={40} /> },
+  { name: 'Figma', icon: <SiFigma size={40} /> },
+  { name: 'GitHub', icon: <SiGithub size={40} /> },
+  { name: 'Flutter', icon: <SiFlutter size={40} /> },
+  { name: 'CSS3', icon: <SiCss3 size={40} /> },
+  { name: 'Tailwind CSS', icon: <SiTailwindcss size={40} /> },
+  { name: 'Vite', icon: <SiVite size={40} /> },
+  { name: 'npm', icon: <SiNpm size={40} /> },
+  { name: 'Sass', icon: <SiSass size={40} /> },
+  { name: 'HTML5', icon: <SiHtml5 size={40} /> },
+];
 
 const SkillsSection = () => {
   const { t } = useLanguage();
@@ -24,21 +35,17 @@ const SkillsSection = () => {
             </p>
           </div>
         </div>
-        <div className="mx-auto grid max-w-6xl gap-6 py-12 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
-          {Object.entries(skillsData).map(([category, skills]) => (
-            <Card key={category} className="shadow-sm hover:shadow-md transition-shadow">
-              <CardHeader>
-                <CardTitle className="font-headline text-xl">{t(`skills.categories.${category}`)}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="flex flex-wrap justify-start gap-2">
-                  {skills.map((skill) => (
-                    <Badge key={skill} variant="outline" className="text-sm px-3 py-1 font-normal">{skill}</Badge>
-                  ))}
+        <div className="mx-auto max-w-5xl py-12">
+          <div className="flex flex-wrap justify-center gap-8 md:gap-12">
+            {skills.map((skill) => (
+              <div key={skill.name} className="group flex flex-col items-center gap-2 text-center">
+                <div className="text-muted-foreground group-hover:text-primary transition-colors duration-300">
+                  {skill.icon}
                 </div>
-              </CardContent>
-            </Card>
-          ))}
+                <p className="text-sm font-medium text-muted-foreground group-hover:text-primary transition-colors duration-300">{skill.name}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
