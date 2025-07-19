@@ -2,7 +2,7 @@ import { useLanguage } from '@/context/language-context';
 import {
   SiReact, SiTypescript, SiJavascript, SiNextdotjs, SiFigma, SiGithub,
   SiFlutter, SiCss3, SiTailwindcss, SiVite, SiNpm, SiSass, SiHtml5,
-  SiGit, SiJava
+  SiGit, SiJAVA
 } from '@icons-pack/react-simple-icons';
 
 const skills = [
@@ -20,7 +20,7 @@ const skills = [
   { name: 'Sass', icon: <SiSass size={40} /> },
   { name: 'HTML5', icon: <SiHtml5 size={40} /> },
   { name: 'Git', icon: <SiGit size={40} /> },
-  { name: 'Java', icon: <SiJava size={40} /> },
+  { name: 'Java', icon: <SiJAVA size={40} /> },
 ];
 
 const SkillsSection = () => {
