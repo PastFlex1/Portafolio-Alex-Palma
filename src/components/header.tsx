@@ -20,6 +20,7 @@ const Header = () => {
   const navLinks = [
     { href: '#about', label: 'Sobre mí' },
     { href: '#skills', label: 'Habilidades' },
+    { href: '#experience', label: 'Trayectoria' },
     { href: '#projects', label: 'Proyectos' },
     { href: '#contact', label: 'Contacto' },
   ];
