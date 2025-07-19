@@ -93,11 +93,16 @@ export default {
             transform: 'rotate(360deg)',
           },
         },
+        'bob': {
+          '0%, 100%': { transform: 'translateY(-4px)' },
+          '50%': { transform: 'translateY(4px)' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         'spin-slow': 'spin-slow 15s linear infinite',
+        'bob': 'bob 3s ease-in-out infinite',
       },
     },
   },

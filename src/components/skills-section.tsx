@@ -37,9 +37,12 @@ const SkillsSection = () => {
         </div>
         <div className="mx-auto max-w-5xl py-12">
           <div className="flex flex-wrap justify-center gap-8 md:gap-12">
-            {skills.map((skill) => (
+            {skills.map((skill, index) => (
               <div key={skill.name} className="group flex flex-col items-center gap-2 text-center">
-                <div className="text-muted-foreground group-hover:text-primary transition-colors duration-300 transform group-hover:-translate-y-1 motion-safe:group-hover:animate-spin-slow">
+                <div 
+                  className="text-muted-foreground group-hover:text-primary transition-colors duration-300 animate-bob"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
                   {skill.icon}
                 </div>
                 <p className="text-sm font-medium text-muted-foreground group-hover:text-primary transition-colors duration-300">{skill.name}</p>
