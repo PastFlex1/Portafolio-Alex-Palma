@@ -2,19 +2,19 @@ import { Briefcase } from 'lucide-react';
 
 const timelineData = [
   {
-    year: '2023',
-    title: 'El Comienzo del Viaje',
-    description: 'Inicié mi carrera en el desarrollo de software, enfocándome en aprender los fundamentos de HTML, CSS y JavaScript. Realicé mis primeros proyectos personales, construyendo aplicaciones web simples y sentando las bases de mis habilidades de programación.',
+    year: '2023 - 2024',
+    title: 'Desarrollador Frontend Jr. en Innovatech Solutions',
+    description: 'Comencé mi carrera profesional en Innovatech, donde me sumergí en el desarrollo de aplicaciones web dinámicas con React y Next.js. Colaboré en el rediseño del portal de clientes, mejorando la experiencia de usuario y optimizando el rendimiento en un 20%.',
   },
   {
-    year: '2024',
-    title: 'Crecimiento y Especialización',
-    description: 'Profundicé en el ecosistema de React y Next.js, colaborando en proyectos más complejos. Adopté TypeScript para mejorar la calidad del código y comencé a trabajar con arquitecturas de backend usando Node.js y Express, ganando experiencia en el desarrollo full-stack.',
+    year: '2024 - 2025',
+    title: 'Desarrollador de Software en Digital Ascent',
+    description: 'En Digital Ascent, asumí mayores responsabilidades, liderando el desarrollo de componentes clave para una plataforma SaaS. Implementé TypeScript para fortalecer la base del código y comencé a integrar soluciones de backend ligeras con Node.js, ampliando mis habilidades full-stack.',
   },
   {
     year: 'Principios de 2025',
-    title: 'Consolidación y Nuevos Retos',
-    description: 'Con una base sólida, comencé a explorar tecnologías avanzadas como la inteligencia artificial generativa con Genkit. Ahora busco aplicar mi experiencia para construir productos digitales innovadores y enfrentar desafíos técnicos más grandes.',
+    title: 'Explorando la IA Generativa',
+    description: 'Actualmente, estoy profundizando en el campo de la inteligencia artificial. He comenzado a desarrollar proyectos personales utilizando Genkit para crear aplicaciones inteligentes e interactivas, buscando aplicar estas tecnologías de vanguardia en futuros desafíos profesionales.',
   },
 ];
 
