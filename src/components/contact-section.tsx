@@ -17,22 +17,24 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { Github, Linkedin, Mail } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from './ui/card';
-
-const formSchema = z.object({
-  name: z.string().min(2, {
-    message: 'El nombre debe tener al menos 2 caracteres.',
-  }),
-  email: z.string().email({
-    message: 'Por favor, introduce una dirección de correo válida.',
-  }),
-  message: z.string().min(10, {
-    message: 'El mensaje debe tener al menos 10 caracteres.',
-  }),
-});
+import { Card, CardContent } from './ui/card';
+import { useLanguage } from '@/context/language-context';
 
 const ContactSection = () => {
   const { toast } = useToast();
+  const { t, language } = useLanguage();
+
+  const formSchema = z.object({
+    name: z.string().min(2, {
+      message: t('contact.form.error_name'),
+    }),
+    email: z.string().email({
+      message: t('contact.form.error_email'),
+    }),
+    message: z.string().min(10, {
+      message: t('contact.form.error_message'),
+    }),
+  });
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -41,13 +43,15 @@ const ContactSection = () => {
       email: '',
       message: '',
     },
+    // The key is used to re-render the form when the language changes
+    key: language, 
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
     toast({
-      title: '¡Mensaje Enviado!',
-      description: 'Gracias por contactarme. Te responderé lo antes posible.',
+      title: t('contact.form.success_title'),
+      description: t('contact.form.success_description'),
       variant: 'default',
     });
     form.reset();
@@ -57,10 +61,10 @@ const ContactSection = () => {
     <section id="contact" className="w-full py-16 md:py-24 lg:py-32">
       <div className="container mx-auto grid items-center justify-center gap-8 px-4 text-center md:px-6">
         <div className="space-y-3">
-            <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-medium text-secondary-foreground">Contacto</div>
-          <h2 className="font-headline text-3xl font-bold tracking-tighter md:text-4xl lg:text-5xl">Hablemos</h2>
+            <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-medium text-secondary-foreground">{t('contact.badge')}</div>
+          <h2 className="font-headline text-3xl font-bold tracking-tighter md:text-4xl lg:text-5xl">{t('contact.title')}</h2>
           <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-            ¿Tienes alguna pregunta o propuesta, o simplemente quieres saludar? ¡Adelante!
+            {t('contact.subtitle')}
           </p>
         </div>
         
@@ -73,9 +77,9 @@ const ContactSection = () => {
                         name="name"
                         render={({ field }) => (
                         <FormItem>
-                            <FormLabel>Nombre</FormLabel>
+                            <FormLabel>{t('contact.form.name')}</FormLabel>
                             <FormControl>
-                            <Input placeholder="Tu Nombre" {...field} />
+                            <Input placeholder={t('contact.form.name_placeholder')} {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
@@ -86,9 +90,9 @@ const ContactSection = () => {
                         name="email"
                         render={({ field }) => (
                         <FormItem>
-                            <FormLabel>Correo Electrónico</FormLabel>
+                            <FormLabel>{t('contact.form.email')}</FormLabel>
                             <FormControl>
-                            <Input placeholder="tu@email.com" {...field} />
+                            <Input placeholder={t('contact.form.email_placeholder')} {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
@@ -99,15 +103,15 @@ const ContactSection = () => {
                         name="message"
                         render={({ field }) => (
                         <FormItem>
-                            <FormLabel>Mensaje</FormLabel>
+                            <FormLabel>{t('contact.form.message')}</FormLabel>
                             <FormControl>
-                            <Textarea placeholder="Tu Mensaje..." {...field} rows={5} />
+                            <Textarea placeholder={t('contact.form.message_placeholder')} {...field} rows={5} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
                         )}
                     />
-                    <Button type="submit" className="w-full !mt-6" size="lg">Enviar Mensaje</Button>
+                    <Button type="submit" className="w-full !mt-6" size="lg">{t('contact.form.submit')}</Button>
                     </form>
                 </Form>
             </CardContent>

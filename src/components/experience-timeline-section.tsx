@@ -1,46 +1,26 @@
 import { Briefcase, Building, Rocket, Code } from 'lucide-react';
+import { useLanguage } from '@/context/language-context';
 
-const timelineData = [
-  {
-    year: 'Principios de 2023',
-    title: 'Prácticas de Desarrollo Frontend',
-    company: 'WebStart Inc.',
-    description: 'Mi primera inmersión en el mundo profesional. Aprendí los fundamentos de HTML, CSS y JavaScript moderno, colaborando en el mantenimiento de sitios web estáticos y aplicando mis conocimientos teóricos en proyectos reales.',
-    icon: <Code />,
-  },
-  {
-    year: 'Mediados 2023 - Finales 2023',
-    title: 'Desarrollador Frontend Jr.',
-    company: 'PixelPerfect Studios',
-    description: 'Di el salto a React, donde contribuí al desarrollo de interfaces de usuario interactivas para clientes. Trabajé de cerca con diseñadores para implementar componentes de UI pixel-perfect y consumí APIs REST para integrar datos dinámicos.',
-    icon: <Briefcase />,
-  },
-  {
-    year: 'Principios 2024 - Mediados 2024',
-    title: 'Desarrollador de UI',
-    company: 'CreativeCode Labs',
-    description: 'Me especialicé en la creación de sistemas de diseño utilizando Tailwind CSS y ShadCN UI. Mi enfoque fue construir una librería de componentes reutilizables y accesibles, mejorando la consistencia y acelerando el desarrollo en toda la empresa.',
-    icon: <Building />,
-  },
-  {
-    year: 'Finales de 2024',
-    title: 'Ingeniero Frontend',
-    company: 'NextGen Solutions',
-    description: 'Aquí trabajé con Next.js para construir aplicaciones web de alto rendimiento. Fui responsable de optimizar el renderizado del lado del servidor (SSR) y de mejorar las métricas de Core Web Vitals, resultando en una carga de página un 30% más rápida.',
-    icon: <Rocket />,
-  },
-];
+const icons = {
+  Code: <Code />,
+  Briefcase: <Briefcase />,
+  Building: <Building />,
+  Rocket: <Rocket />,
+};
 
 const ExperienceTimelineSection = () => {
+  const { t } = useLanguage();
+  const timelineData = t('experience.timeline') as any[];
+
   return (
     <section id="experience" className="w-full py-16 md:py-24 lg:py-32">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-3">
-             <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-medium text-secondary-foreground">Experiencia</div>
-            <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Mi Trayectoria Profesional</h2>
+             <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-medium text-secondary-foreground">{t('experience.badge')}</div>
+            <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">{t('experience.title')}</h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Un vistazo a mi recorrido profesional, desde mis inicios hasta mis más recientes logros y aprendizajes.
+              {t('experience.subtitle')}
             </p>
           </div>
         </div>
@@ -52,7 +32,12 @@ const ExperienceTimelineSection = () => {
                   <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8' : 'pl-8'}`}>
                     <div className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 transform">
                         <div className="z-10 flex items-center justify-center w-12 h-12 bg-primary rounded-full ring-8 ring-background text-primary-foreground">
-                            {item.icon}
+                            {
+                                index === 0 ? icons.Code :
+                                index === 1 ? icons.Briefcase :
+                                index === 2 ? icons.Building :
+                                icons.Rocket
+                            }
                         </div>
                     </div>
                     <div className="bg-card p-6 rounded-lg shadow-md border">

@@ -1,7 +1,9 @@
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
+import { useLanguage } from '@/context/language-context';
 
 const AboutSection = () => {
+  const { t } = useLanguage();
   return (
     <section id="about" className="w-full py-16 md:py-24 lg:py-32">
       <div className="container mx-auto px-4 md:px-6">
@@ -25,14 +27,14 @@ const AboutSection = () => {
           </div>
           <div className="space-y-6 text-center lg:text-left">
             <div className="space-y-3">
-              <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-medium text-secondary-foreground">Sobre Mí</div>
-              <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Un Vistazo a Mi Mundo</h2>
+              <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-medium text-secondary-foreground">{t('about.badge')}</div>
+              <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">{t('about.title')}</h2>
               <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed mx-auto lg:mx-0">
-                ¡Hola! Soy Alex Palma, un desarrollador y diseñador web ecuatoriano de 19 años. Me apasiona crear interfaces de usuario intuitivas y experiencias digitales memorables. He trabajado como freelancer y para empresas, lo que me ha dado una base sólida en el desarrollo práctico.
+                {t('about.paragraph1')}
               </p>
             </div>
             <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed mx-auto lg:mx-0">
-              Actualmente, estoy en el tercer semestre de Ingeniería de Software en la Universidad Politécnica Salesiana, donde sigo perfeccionando mis habilidades para convertir ideas complejas en código elegante y funcional.
+              {t('about.paragraph2')}
             </p>
           </div>
         </div>

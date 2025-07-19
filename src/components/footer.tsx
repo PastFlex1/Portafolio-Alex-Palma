@@ -1,7 +1,10 @@
 import { Code2, Github, Linkedin } from 'lucide-react';
 import Link from 'next/link';
+import { useLanguage } from '@/context/language-context';
 
 const Footer = () => {
+  const { t } = useLanguage();
+  
   return (
     <footer className="w-full py-8 border-t bg-background">
       <div className="container mx-auto flex flex-col items-center justify-between gap-6 px-4 md:flex-row md:px-6">
@@ -10,7 +13,7 @@ const Footer = () => {
             <span className="font-bold text-lg font-headline">DevFolio</span>
         </Link>
         <p className="text-sm text-muted-foreground">
-          &copy; {new Date().getFullYear()} Alex Palma. Diseñado y construido con ❤️.
+          {t('footer.copy').replace('{year}', new Date().getFullYear().toString())}
         </p>
         <div className="flex items-center gap-5">
           <a href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-muted-foreground hover:text-primary transition-colors">

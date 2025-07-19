@@ -1,23 +1,26 @@
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { useLanguage } from '@/context/language-context';
 
 const skillsData = {
-  'Lenguajes': ['JavaScript (ES6+)', 'TypeScript', 'HTML5', 'CSS3/Sass', 'SQL'],
-  'Frameworks y Librerías': ['React', 'Next.js', 'Node.js', 'Express', 'Tailwind CSS', 'ShadCN UI'],
-  'Herramientas y Plataformas': ['Git y GitHub', 'Docker', 'Firebase', 'Vercel', 'Figma', 'Postman'],
-  'Bases de Datos y Otros': ['MongoDB', 'PostgreSQL', 'REST APIs', 'Scrum', 'Diseño UI/UX'],
+  'languages': ['JavaScript (ES6+)', 'TypeScript', 'HTML5', 'CSS3/Sass', 'SQL'],
+  'frameworks': ['React', 'Next.js', 'Node.js', 'Express', 'Tailwind CSS', 'ShadCN UI'],
+  'tools': ['Git y GitHub', 'Docker', 'Firebase', 'Vercel', 'Figma', 'Postman'],
+  'db': ['MongoDB', 'PostgreSQL', 'REST APIs', 'Scrum', 'Diseño UI/UX'],
 };
 
 const SkillsSection = () => {
+  const { t } = useLanguage();
+
   return (
-    <section id="skills" className="w-full py-16 md:py-24 lg:py-32 bg-secondary">
+    <section id="skills" className="w-full py-16 md:py-24 lg:py-32 bg-secondary/50 dark:bg-secondary/20">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-3">
-            <div className="inline-block rounded-lg bg-background px-3 py-1 text-sm font-medium text-foreground">Habilidades</div>
-            <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Mi Caja de Herramientas</h2>
+            <div className="inline-block rounded-lg bg-background px-3 py-1 text-sm font-medium text-foreground">{t('skills.badge')}</div>
+            <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">{t('skills.title')}</h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-              Estas son algunas de las tecnologías y metodologías con las que construyo soluciones digitales.
+              {t('skills.subtitle')}
             </p>
           </div>
         </div>
@@ -25,7 +28,7 @@ const SkillsSection = () => {
           {Object.entries(skillsData).map(([category, skills]) => (
             <Card key={category} className="shadow-sm hover:shadow-md transition-shadow">
               <CardHeader>
-                <CardTitle className="font-headline text-xl">{category}</CardTitle>
+                <CardTitle className="font-headline text-xl">{t(`skills.categories.${category}`)}</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="flex flex-wrap justify-start gap-2">
