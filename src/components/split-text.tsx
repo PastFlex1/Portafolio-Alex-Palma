@@ -1,3 +1,4 @@
+
 'use client';
 import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
@@ -63,7 +64,9 @@ const SplitText = ({
 
     if (!targets || targets.length === 0) {
       console.warn("No targets found for SplitText animation");
-      splitter.revert();
+      if (splitter) {
+        splitter.revert();
+      }
       return;
     }
 
