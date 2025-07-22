@@ -4,23 +4,12 @@ import { ArrowDown, Download } from 'lucide-react';
 import Link from 'next/link';
 import { useLanguage } from '@/context/language-context';
 import SplitText from './split-text';
-import Particles from './particles';
 
 const HeroSection = () => {
   const { t } = useLanguage();
   return (
     <section id="home" className="relative flex min-h-screen w-full flex-col items-center justify-center text-center">
-        <Particles 
-            className="absolute inset-0 -z-10 h-full w-full"
-            particleColors={['#9400D3', '#FF69B4', '#E6E6FA']}
-            particleCount={500}
-            particleBaseSize={30}
-            particleSpread={15}
-            speed={0.05}
-        />
-        <div className="absolute inset-0 -z-10 h-full w-full bg-gradient-to-b from-background/50 via-background/80 to-background"></div>
-
-      <div className="container px-4 md:px-6">
+      <div className="container px-4 md:px-6 z-10">
         <div className="grid gap-8">
           <div className="flex flex-col items-center justify-center space-y-6">
             <div className="space-y-4">
@@ -46,7 +35,7 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-      <Link href="#about" className="absolute bottom-10 animate-bounce" aria-label="Ir a la sección 'Sobre mí'">
+      <Link href="#about" className="absolute bottom-10 animate-bounce z-10" aria-label="Ir a la sección 'Sobre mí'">
         <ArrowDown className="h-6 w-6 text-muted-foreground" />
       </Link>
     </section>
