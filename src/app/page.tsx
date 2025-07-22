@@ -25,11 +25,11 @@ export default function Home() {
       <div className="fixed inset-0 -z-10 h-full w-full bg-gradient-to-b from-background/50 via-background/80 to-background"></div>
 
       <Header />
-      <div className="snap-y snap-mandatory h-screen w-screen overflow-y-auto overflow-x-hidden">
-        <div className="snap-start"><HeroSection /></div>
-        <div className="snap-start"><AboutSection /></div>
-        <div className="snap-start"><SkillsSection /></div>
-        <div className="snap-start">
+      <div className="snap-y snap-mandatory h-screen w-screen overflow-y-auto overflow-x-hidden scroll-container">
+        <div className="snap-start h-screen"><HeroSection /></div>
+        <div className="snap-start h-screen"><AboutSection /></div>
+        <div className="snap-start h-screen"><SkillsSection /></div>
+        <div className="snap-start h-screen">
             <ScrollVelocity 
                 texts={["- Frontend Developer -", "- UI/UX Designer -"]}
                 velocity={50}
@@ -37,11 +37,11 @@ export default function Home() {
                 scrollerClassName="md:text-[7rem] md:leading-[7rem]"
             />
         </div>
-        <div className="snap-start"><ExperienceTimelineSection /></div>
-        <div className="snap-start"><ProjectsSection /></div>
-        <div className="snap-start"><ResumeSection /></div>
-        <div className="snap-start"><ContactSection /></div>
-        <div className="snap-start"><Footer /></div>
+        <div className="snap-start h-screen"><ExperienceTimelineSection /></div>
+        <div className="snap-start h-screen"><ProjectsSection /></div>
+        <div className="snap-start h-screen"><ResumeSection /></div>
+        <div className="snap-start h-screen"><ContactSection /></div>
+        <div className="snap-start h-screen"><Footer /></div>
       </div>
     </div>
   );

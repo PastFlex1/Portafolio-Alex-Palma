@@ -63,7 +63,10 @@
   }
   body {
     @apply bg-background text-foreground;
-    /* Prevent body from scrolling, let the snap container handle it */
     overflow: hidden;
+  }
+  
+  .scroll-container {
+      scroll-behavior: smooth;
   }
 }
