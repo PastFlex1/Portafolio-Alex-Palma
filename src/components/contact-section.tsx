@@ -60,7 +60,7 @@ const ContactSection = () => {
   }
 
   return (
-    <section id="contact" className="w-full h-screen flex items-center justify-center">
+    <section id="contact" className="w-full py-24 md:py-32">
       <div className="container mx-auto grid items-center justify-center gap-8 px-4 text-center md:px-6">
         <div className="space-y-3">
             <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-medium text-secondary-foreground">{t('contact.badge')}</div>

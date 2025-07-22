@@ -63,10 +63,5 @@
   }
   body {
     @apply bg-background text-foreground;
-    overflow: hidden;
-  }
-  
-  .scroll-container {
-      scroll-behavior: smooth;
   }
 }

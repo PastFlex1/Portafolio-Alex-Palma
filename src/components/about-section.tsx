@@ -84,7 +84,7 @@ const OrbitingSkills = () => {
 const AboutSection = () => {
   const { t } = useLanguage();
   return (
-    <section id="about" className="w-full h-screen flex items-center justify-center">
+    <section id="about" className="w-full py-24 md:py-32">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-20">
           <div className="flex items-center justify-center min-h-[350px] lg:min-h-[450px]">

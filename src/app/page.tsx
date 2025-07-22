@@ -13,7 +13,7 @@ import ScrollVelocity from '@/components/scroll-velocity';
 
 export default function Home() {
   return (
-    <div className="bg-background">
+    <div className="bg-background flex flex-col min-h-screen">
       <Particles 
             className="fixed inset-0 -z-10 h-full w-full"
             particleColors={['#9400D3', '#FF69B4', '#E6E6FA']}
@@ -25,24 +25,22 @@ export default function Home() {
       <div className="fixed inset-0 -z-10 h-full w-full bg-gradient-to-b from-background/50 via-background/80 to-background"></div>
 
       <Header />
-      <div className="snap-y snap-mandatory h-screen w-screen overflow-y-auto overflow-x-hidden scroll-container">
-        <div className="snap-start h-screen"><HeroSection /></div>
-        <div className="snap-start h-screen"><AboutSection /></div>
-        <div className="snap-start h-screen"><SkillsSection /></div>
-        <div className="snap-start h-screen">
-            <ScrollVelocity 
-                texts={["- Frontend Developer -", "- UI/UX Designer -"]}
-                velocity={50}
-                className="font-headline text-primary"
-                scrollerClassName="md:text-[7rem] md:leading-[7rem]"
-            />
-        </div>
-        <div className="snap-start h-screen"><ExperienceTimelineSection /></div>
-        <div className="snap-start h-screen"><ProjectsSection /></div>
-        <div className="snap-start h-screen"><ResumeSection /></div>
-        <div className="snap-start h-screen"><ContactSection /></div>
-        <div className="snap-start h-screen"><Footer /></div>
-      </div>
+      <main className="flex-grow">
+        <HeroSection />
+        <AboutSection />
+        <SkillsSection />
+        <ScrollVelocity 
+            texts={["- Frontend Developer -", "- UI/UX Designer -"]}
+            velocity={50}
+            className="font-headline text-primary"
+            scrollerClassName="md:text-[7rem] md:leading-[7rem]"
+        />
+        <ExperienceTimelineSection />
+        <ProjectsSection />
+        <ResumeSection />
+        <ContactSection />
+      </main>
+      <Footer />
     </div>
   );
 }

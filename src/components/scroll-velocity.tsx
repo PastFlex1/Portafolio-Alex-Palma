@@ -161,7 +161,7 @@ export const ScrollVelocity = ({
 }: ScrollVelocityProps) => {
 
   return (
-    <section className="py-8 h-screen flex flex-col justify-center">
+    <section className="py-24 md:py-32">
       {texts.map((text, index) => (
         <VelocityText
           key={index}
