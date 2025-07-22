@@ -1,3 +1,4 @@
+
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -19,6 +20,7 @@ import { useToast } from '@/hooks/use-toast';
 import { Github, Linkedin, Mail } from 'lucide-react';
 import { Card, CardContent } from './ui/card';
 import { useLanguage } from '@/context/language-context';
+import SplitText from './split-text';
 
 const ContactSection = () => {
   const { toast } = useToast();
@@ -62,7 +64,16 @@ const ContactSection = () => {
       <div className="container mx-auto grid items-center justify-center gap-8 px-4 text-center md:px-6">
         <div className="space-y-3">
             <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-medium text-secondary-foreground">{t('contact.badge')}</div>
-          <h2 className="font-headline text-3xl font-bold tracking-tighter md:text-4xl lg:text-5xl">{t('contact.title')}</h2>
+          <h2 className="font-headline text-3xl font-bold tracking-tighter md:text-4xl lg:text-5xl">
+            <SplitText
+                text={t('contact.title')}
+                from={{ y: 120, scaleY: 2.3, scaleX: 0.7, opacity: 0 }}
+                to={{ y: 0, scaleY: 1, scaleX: 1, opacity: 1 }}
+                duration={1}
+                ease="back.inOut(2)"
+                delay={30}
+            />
+          </h2>
           <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
             {t('contact.subtitle')}
           </p>

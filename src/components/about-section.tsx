@@ -7,6 +7,7 @@ import {
 import { useLanguage } from '@/context/language-context';
 import { cn } from '@/lib/utils';
 import { useEffect, useState } from 'react';
+import SplitText from './split-text';
 
 const skills = [
   // Outer orbit
@@ -104,7 +105,16 @@ const AboutSection = () => {
           <div className="space-y-6 text-center lg:text-left">
             <div className="space-y-3">
               <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-medium text-secondary-foreground">{t('about.badge')}</div>
-              <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">{t('about.title')}</h2>
+              <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                <SplitText
+                    text={t('about.title')}
+                    from={{ y: 120, scaleY: 2.3, scaleX: 0.7, opacity: 0 }}
+                    to={{ y: 0, scaleY: 1, scaleX: 1, opacity: 1 }}
+                    duration={1}
+                    ease="back.inOut(2)"
+                    delay={30}
+                 />
+              </h2>
               <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed mx-auto lg:mx-0">
                 {t('about.paragraph1')}
               </p>

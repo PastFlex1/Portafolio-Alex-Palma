@@ -1,5 +1,7 @@
+
 import { Briefcase, Building, Rocket, Code } from 'lucide-react';
 import { useLanguage } from '@/context/language-context';
+import SplitText from './split-text';
 
 const icons = {
   Code: <Code />,
@@ -18,7 +20,16 @@ const ExperienceTimelineSection = () => {
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-3">
              <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-medium text-secondary-foreground">{t('experience.badge')}</div>
-            <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">{t('experience.title')}</h2>
+            <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                <SplitText
+                    text={t('experience.title')}
+                    from={{ y: 120, scaleY: 2.3, scaleX: 0.7, opacity: 0 }}
+                    to={{ y: 0, scaleY: 1, scaleX: 1, opacity: 1 }}
+                    duration={1}
+                    ease="back.inOut(2)"
+                    delay={30}
+                />
+            </h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
               {t('experience.subtitle')}
             </p>

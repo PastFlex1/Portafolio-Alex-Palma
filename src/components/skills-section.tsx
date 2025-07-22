@@ -1,9 +1,11 @@
+
 import { useLanguage } from '@/context/language-context';
 import {
   SiReact, SiTypescript, SiJavascript, SiNextdotjs, SiFigma, SiGithub,
   SiFlutter, SiCss3, SiTailwindcss, SiVite, SiNpm, SiSass, SiHtml5,
   SiGit, SiOpenjdk
 } from '@icons-pack/react-simple-icons';
+import SplitText from './split-text';
 
 const skills = [
   { name: 'React', icon: <SiReact size={40} /> },
@@ -32,7 +34,16 @@ const SkillsSection = () => {
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-3">
             <div className="inline-block rounded-lg bg-background px-3 py-1 text-sm font-medium text-foreground">{t('skills.badge')}</div>
-            <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">{t('skills.title')}</h2>
+            <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                <SplitText
+                    text={t('skills.title')}
+                    from={{ y: 120, scaleY: 2.3, scaleX: 0.7, opacity: 0 }}
+                    to={{ y: 0, scaleY: 1, scaleX: 1, opacity: 1 }}
+                    duration={1}
+                    ease="back.inOut(2)"
+                    delay={30}
+                 />
+            </h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
               {t('skills.subtitle')}
             </p>
