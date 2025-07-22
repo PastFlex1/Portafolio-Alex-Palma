@@ -6,72 +6,133 @@ import {
 } from '@icons-pack/react-simple-icons';
 import { useLanguage } from '@/context/language-context';
 import { cn } from '@/lib/utils';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef, RefObject } from 'react';
+import { gsap } from 'gsap';
 
 const skills = [
-  { name: 'React', icon: <SiReact size={24} />, className: 'bg-blue-500/10 text-blue-400' },
-  { name: 'TypeScript', icon: <SiTypescript size={24} />, className: 'bg-sky-500/10 text-sky-400' },
-  { name: 'JavaScript', icon: <SiJavascript size={24} />, className: 'bg-yellow-500/10 text-yellow-400' },
-  { name: 'Next.js', icon: <SiNextdotjs size={24} />, className: 'bg-neutral-500/10 text-neutral-400' },
-  { name: 'Figma', icon: <SiFigma size={24} />, className: 'bg-pink-500/10 text-pink-400' },
-  { name: 'GitHub', icon: <SiGithub size={24} />, className: 'bg-green-500/10 text-green-400' },
-  { name: 'Tailwind CSS', icon: <SiTailwindcss size={24} />, className: 'bg-cyan-500/10 text-cyan-400' },
-  { name: 'HTML5', icon: <SiHtml5 size={24} />, className: 'bg-orange-500/10 text-orange-400' },
+  // Outer orbit
+  { name: 'React', icon: <SiReact size={24} />, className: 'bg-blue-500/10 text-blue-400', orbit: 1 },
+  { name: 'TypeScript', icon: <SiTypescript size={24} />, className: 'bg-sky-500/10 text-sky-400', orbit: 1 },
+  { name: 'Next.js', icon: <SiNextdotjs size={24} />, className: 'bg-neutral-500/10 text-neutral-400', orbit: 1 },
+  
+  // Middle orbit
+  { name: 'JavaScript', icon: <SiJavascript size={24} />, className: 'bg-yellow-500/10 text-yellow-400', orbit: 2 },
+  { name: 'Tailwind CSS', icon: <SiTailwindcss size={24} />, className: 'bg-cyan-500/10 text-cyan-400', orbit: 2 },
+  { name: 'Figma', icon: <SiFigma size={24} />, className: 'bg-pink-500/10 text-pink-400', orbit: 2 },
+  
+  // Inner orbit
+  { name: 'GitHub', icon: <SiGithub size={24} />, className: 'bg-green-500/10 text-green-400', orbit: 3 },
+  { name: 'HTML5', icon: <SiHtml5 size={24} />, className: 'bg-orange-500/10 text-orange-400', orbit: 3 },
 ];
 
 const OrbitingSkills = () => {
   const [isMounted, setIsMounted] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const iconRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
 
+  useEffect(() => {
+    if (!isMounted) return;
+
+    const container = containerRef.current;
+    if (!container) return;
+
+    const handleMouseMove = (event: MouseEvent) => {
+      const rect = container.getBoundingClientRect();
+      const mouseX = event.clientX - rect.left;
+      const mouseY = event.clientY - rect.top;
+
+      iconRefs.current.forEach((iconEl) => {
+        if (!iconEl) return;
+        
+        const iconRect = iconEl.getBoundingClientRect();
+        const iconX = iconRect.left - rect.left + iconRect.width / 2;
+        const iconY = iconRect.top - rect.top + iconRect.height / 2;
+        
+        const distance = Math.sqrt(Math.pow(mouseX - iconX, 2) + Math.pow(mouseY - iconY, 2));
+        
+        const orbitEl = iconEl.parentElement;
+        if (!orbitEl) return;
+
+        const baseDuration = parseFloat(orbitEl.style.getPropertyValue('--base-duration'));
+        const newDuration = Math.max(1, baseDuration - (150 - distance) * 0.05);
+
+        if (distance < 150) {
+           gsap.to(orbitEl, {
+            animationDuration: `${newDuration}s`,
+            duration: 0.3,
+            ease: 'power2.out'
+          });
+        } else {
+           gsap.to(orbitEl, {
+            animationDuration: `${baseDuration}s`,
+            duration: 0.8,
+            ease: 'power2.out'
+          });
+        }
+      });
+    };
+
+    container.addEventListener('mousemove', handleMouseMove);
+
+    return () => {
+      container.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, [isMounted]);
+
   if (!isMounted) {
     return null;
   }
+  
+  const orbits = [
+    { class: 'animate-spin-slow-1', size: 100, duration: 15, items: skills.filter(s => s.orbit === 1) },
+    { class: 'animate-spin-slow-2', size: 75, duration: 20, items: skills.filter(s => s.orbit === 2) },
+    { class: 'animate-spin-slow-3', size: 50, duration: 25, items: skills.filter(s => s.orbit === 3) },
+  ];
 
   return (
-    <>
-      <div className="absolute inset-0 animate-spin-slow-1">
-        <div className="absolute top-1/2 left-1/2 w-[100%] h-[100%] border-2 border-dashed border-primary/20 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
-        {skills.slice(0, 3).map((skill, index) => {
-            const angle = (index / 3) * 2 * Math.PI;
-            const top = `calc(50% - 20px + ${-Math.cos(angle) * 50}%)`;
-            const left = `calc(50% - 20px + ${Math.sin(angle) * 50}%)`;
-            return (
-              <div key={skill.name} className={cn("absolute w-10 h-10 flex items-center justify-center rounded-full shadow-lg backdrop-blur-sm border border-primary/10 animate-spin-reverse-1", skill.className)} style={{ top, left }}>
-                {skill.icon}
-              </div>
-            );
-        })}
-      </div>
-      <div className="absolute inset-0 animate-spin-slow-2">
-          <div className="absolute top-1/2 left-1/2 w-[75%] h-[75%] border-2 border-dashed border-accent/30 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
-          {skills.slice(3, 6).map((skill, index) => {
-            const angle = (index / 3) * 2 * Math.PI;
-            const top = `calc(50% - 20px + ${-Math.cos(angle) * 37.5}%)`;
-            const left = `calc(50% - 20px + ${Math.sin(angle) * 37.5}%)`;
-            return (
-              <div key={skill.name} className={cn("absolute w-10 h-10 flex items-center justify-center rounded-full shadow-lg backdrop-blur-sm border border-primary/10 animate-spin-reverse-2", skill.className)} style={{ top, left }}>
-                {skill.icon}
-              </div>
-            );
-        })}
-      </div>
-      <div className="absolute inset-0 animate-spin-slow-3">
-          <div className="absolute top-1/2 left-1/2 w-[50%] h-[50%] border-2 border-dashed border-secondary-foreground/20 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
-          {skills.slice(6, 8).map((skill, index) => {
-            const angle = (index / 2) * 2 * Math.PI;
-            const top = `calc(50% - 20px + ${-Math.cos(angle) * 25}%)`;
-            const left = `calc(50% - 20px + ${Math.sin(angle) * 25}%)`;
-            return (
-              <div key={skill.name} className={cn("absolute w-10 h-10 flex items-center justify-center rounded-full shadow-lg backdrop-blur-sm border border-primary/10 animate-spin-reverse-3", skill.className)} style={{ top, left }}>
-                {skill.icon}
-              </div>
-            );
-        })}
-      </div>
-    </>
+    <div ref={containerRef} className="absolute inset-0">
+        {orbits.map((orbit, orbitIndex) => (
+            <div 
+              key={orbitIndex} 
+              className={cn("absolute top-1/2 left-1/2", orbit.class)}
+              style={{
+                width: `${orbit.size}%`,
+                height: `${orbit.size}%`,
+                border: '2px dashed hsl(var(--primary) / 0.1)',
+                borderRadius: '50%',
+                transform: 'translate(-50%, -50%)',
+                animationDuration: `${orbit.duration}s`,
+                // @ts-ignore
+                '--base-duration': orbit.duration,
+              }}
+            >
+              {orbit.items.map((skill, skillIndex) => {
+                const angle = (skillIndex / orbit.items.length) * 2 * Math.PI;
+                const top = `calc(50% - 20px + ${-Math.cos(angle) * 50}%)`;
+                const left = `calc(50% - 20px + ${Math.sin(angle) * 50}%)`;
+                return (
+                  <div
+                    key={skill.name}
+                    ref={el => iconRefs.current[skills.indexOf(skill)] = el}
+                    className={cn(
+                      "absolute w-10 h-10 flex items-center justify-center rounded-full shadow-lg backdrop-blur-sm border border-primary/10",
+                      skill.className,
+                    )}
+                    style={{ top, left }}
+                  >
+                    <div className={cn("animate-spin-reverse", orbit.class)} style={{ animationDuration: `${orbit.duration}s` }}>
+                        {skill.icon}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+        ))}
+    </div>
   )
 }
 
