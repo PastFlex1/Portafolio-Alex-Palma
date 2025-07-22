@@ -30,6 +30,9 @@ const SplitText = ({
 
     const el = ref.current;
     
+    // Hide parent element initially to prevent flash of unstyled text
+    gsap.set(el, { visibility: 'hidden' });
+    
     animationCompletedRef.current = false;
 
     const absoluteLines = splitType === "lines";
@@ -103,9 +106,11 @@ const SplitText = ({
       },
     });
 
-    tl.set(targets, { ...from, immediateRender: false, force3D: true });
-    tl.to(targets, {
-      ...to,
+    // Make parent visible right before animation starts
+    tl.set(el, { visibility: 'visible' });
+
+    tl.from(targets, {
+      ...from,
       duration,
       ease,
       stagger: delay / 1000,
@@ -134,6 +139,8 @@ const SplitText = ({
     threshold,
     rootMargin,
     onLetterAnimationComplete,
+    className,
+    textAlign
   ]);
 
   return (
@@ -143,6 +150,7 @@ const SplitText = ({
       style={{
         textAlign,
         wordWrap: "break-word",
+        visibility: 'hidden', // Initially hide the element
       }}
     >
       {text}
