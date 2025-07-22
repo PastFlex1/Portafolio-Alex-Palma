@@ -85,14 +85,12 @@ export default {
             height: '0',
           },
         },
-        'spin-slow': {
-          from: {
-            transform: 'rotate(0deg)',
-          },
-          to: {
-            transform: 'rotate(360deg)',
-          },
-        },
+        'spin-slow-1': { from: { transform: 'rotate(0deg)' }, to: { transform: 'rotate(360deg)' } },
+        'spin-slow-2': { from: { transform: 'rotate(0deg)' }, to: { transform: 'rotate(-360deg)' } },
+        'spin-slow-3': { from: { transform: 'rotate(0deg)' }, to: { transform: 'rotate(360deg)' } },
+        'orbit-reverse-1': { from: { transform: 'rotate(0deg)' }, to: { transform: 'rotate(-360deg)' } },
+        'orbit-reverse-2': { from: { transform: 'rotate(0deg)' }, to: { transform: 'rotate(360deg)' } },
+        'orbit-reverse-3': { from: { transform: 'rotate(0deg)' }, to: { transform: 'rotate(-360deg)' } },
         'bob': {
           '0%, 100%': { transform: 'translateY(-4px)' },
           '50%': { transform: 'translateY(4px)' },
@@ -101,7 +99,9 @@ export default {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        'spin-slow': 'spin-slow 15s linear infinite',
+        'spin-slow-1': 'spin-slow-1 15s linear infinite',
+        'spin-slow-2': 'spin-slow-2 20s linear infinite',
+        'spin-slow-3': 'spin-slow-3 25s linear infinite',
         'bob': 'bob 3s ease-in-out infinite',
       },
     },
