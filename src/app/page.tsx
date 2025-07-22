@@ -10,6 +10,7 @@ import ContactSection from '@/components/contact-section';
 import Footer from '@/components/footer';
 import Particles from '@/components/particles';
 import TextCursor from '@/components/text-cursor';
+import ScrollVelocity from '@/components/scroll-velocity';
 
 export default function Home() {
   return (
@@ -30,6 +31,12 @@ export default function Home() {
         <HeroSection />
         <AboutSection />
         <SkillsSection />
+        <ScrollVelocity 
+            texts={["- Frontend Developer -", "- UI/UX Designer -"]}
+            velocity={50}
+            className="font-headline text-primary"
+            scrollerClassName="md:text-[7rem] md:leading-[7rem]"
+        />
         <ExperienceTimelineSection />
         <ProjectsSection />
         <ResumeSection />
