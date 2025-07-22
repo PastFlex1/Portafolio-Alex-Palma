@@ -83,7 +83,7 @@ const ProjectsSection = () => {
     <div className="mx-auto grid gap-8 pt-12 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
       {projects.map((project) => (
         <TiltedCard key={project.title}>
-            <Card className="group overflow-hidden rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+            <Card className="group overflow-hidden rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full bg-card">
                 <div className="relative h-[250px] w-full overflow-hidden rounded-t-xl">
                     <Image
                         src={project.image}
@@ -93,7 +93,7 @@ const ProjectsSection = () => {
                         data-ai-hint={project.imageHint}
                     />
                 </div>
-                <div className="p-6 bg-card flex-grow flex flex-col">
+                <div className="p-6 flex-grow flex flex-col">
                     <h3 className="font-headline text-xl font-bold mb-2">{project.title}</h3>
                     <p className="text-muted-foreground text-sm mb-4 min-h-[40px] flex-grow">{project.description}</p>
                     <div className="flex justify-start gap-4 mt-auto">

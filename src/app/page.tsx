@@ -10,6 +10,7 @@ import ContactSection from '@/components/contact-section';
 import Footer from '@/components/footer';
 import Particles from '@/components/particles';
 import ScrollVelocity from '@/components/scroll-velocity';
+import SectionWrapper from '@/components/section-wrapper';
 
 export default function Home() {
   return (
@@ -26,19 +27,35 @@ export default function Home() {
 
       <Header />
       <main className="flex-grow">
-        <HeroSection />
-        <AboutSection />
-        <SkillsSection />
-        <ScrollVelocity 
-            texts={["- Frontend Developer -", "- UI/UX Designer -"]}
-            velocity={50}
-            className="font-headline text-primary"
-            scrollerClassName="md:text-[7rem] md:leading-[7rem]"
-        />
-        <ExperienceTimelineSection />
-        <ProjectsSection />
-        <ResumeSection />
-        <ContactSection />
+        <SectionWrapper>
+          <HeroSection />
+        </SectionWrapper>
+        <SectionWrapper>
+          <AboutSection />
+        </SectionWrapper>
+        <SectionWrapper>
+          <SkillsSection />
+        </SectionWrapper>
+        <SectionWrapper>
+          <ScrollVelocity 
+              texts={["- Frontend Developer -", "- UI/UX Designer -"]}
+              velocity={50}
+              className="font-headline text-primary"
+              scrollerClassName="md:text-[7rem] md:leading-[7rem]"
+          />
+        </SectionWrapper>
+        <SectionWrapper>
+          <ExperienceTimelineSection />
+        </SectionWrapper>
+        <SectionWrapper>
+          <ProjectsSection />
+        </SectionWrapper>
+        <SectionWrapper>
+          <ResumeSection />
+        </SectionWrapper>
+        <SectionWrapper>
+          <ContactSection />
+        </SectionWrapper>
       </main>
       <Footer />
     </div>
