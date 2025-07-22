@@ -3,13 +3,21 @@ import { ArrowDown, Download } from 'lucide-react';
 import Link from 'next/link';
 import { useLanguage } from '@/context/language-context';
 import SplitText from './split-text';
+import Particles from './particles';
 
 const HeroSection = () => {
   const { t } = useLanguage();
   return (
     <section id="home" className="relative flex min-h-screen w-full flex-col items-center justify-center text-center">
-        <div className="absolute inset-0 -z-10 h-full w-full bg-background bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] dark:bg-[radial-gradient(hsl(var(--muted))_1px,transparent_1px)]"></div>
-        <div className="absolute inset-0 -z-10 h-full w-full bg-gradient-to-b from-background via-background/80 to-background"></div>
+        <Particles 
+            className="absolute inset-0 -z-10 h-full w-full"
+            particleColors={['#9400D3', '#FF69B4', '#E6E6FA']}
+            particleCount={500}
+            particleBaseSize={30}
+            particleSpread={15}
+            speed={0.05}
+        />
+        <div className="absolute inset-0 -z-10 h-full w-full bg-gradient-to-b from-background/50 via-background/80 to-background"></div>
 
       <div className="container px-4 md:px-6">
         <div className="grid gap-8">
