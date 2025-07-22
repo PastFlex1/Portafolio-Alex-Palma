@@ -91,6 +91,17 @@ export default {
           '0%, 100%': { transform: 'translateY(-4px)' },
           '50%': { transform: 'translateY(4px)' },
         },
+        'tilt': {
+          '0%, 50%, 100%': {
+            transform: 'rotate(0deg)',
+          },
+          '25%': {
+            transform: 'rotate(0.5deg)',
+          },
+          '75%': {
+            transform: 'rotate(-0.5deg)',
+          },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -100,6 +111,7 @@ export default {
         'spin-slow-3': 'spin-slow 25s linear infinite',
         'spin-reverse': 'spin-reverse 1s linear infinite', // Speed will be controlled by JS
         'bob': 'bob 3s ease-in-out infinite',
+        'tilt': 'tilt 10s infinite linear',
       },
     },
   },

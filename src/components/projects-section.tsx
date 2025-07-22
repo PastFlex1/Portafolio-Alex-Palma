@@ -83,7 +83,9 @@ const ProjectsSection = () => {
     <div className="mx-auto grid gap-8 pt-12 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
       {projects.map((project) => (
         <TiltedCard key={project.title}>
-            <Card className="group overflow-hidden rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full bg-card">
+          <div className="relative p-0.5 group rounded-xl">
+            <div className="absolute transition-all duration-1000 opacity-0 -inset-px bg-gradient-to-r from-pink-500 via-purple-500 to-fuchsia-500 rounded-xl blur-lg group-hover:opacity-70 group-hover:duration-200 animate-tilt"></div>
+            <Card className="relative overflow-hidden rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full bg-card">
                 <div className="relative h-[250px] w-full overflow-hidden rounded-t-xl">
                     <Image
                         src={project.image}
@@ -112,6 +114,7 @@ const ProjectsSection = () => {
                     </div>
                 </div>
             </Card>
+          </div>
         </TiltedCard>
       ))}
     </div>
