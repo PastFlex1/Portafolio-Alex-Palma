@@ -17,7 +17,7 @@ const ProjectsSection = () => {
       description: t('projects.webDesign.project1.description'),
       image: 'https://placehold.co/600x400.png',
       imageHint: 'e-commerce website design',
-      githubUrl: '#',
+      githubUrl: 'https://github.com/PastFlex1',
       liveUrl: '#',
     },
     {
@@ -25,7 +25,7 @@ const ProjectsSection = () => {
       description: t('projects.webDesign.project2.description'),
       image: 'https://placehold.co/600x400.png',
       imageHint: 'portfolio design figma',
-      githubUrl: '#',
+      githubUrl: 'https://github.com/PastFlex1',
       liveUrl: '#',
     },
     {
@@ -33,7 +33,7 @@ const ProjectsSection = () => {
       description: t('projects.webDesign.project3.description'),
       image: 'https://placehold.co/600x400.png',
       imageHint: 'landing page mockup',
-      githubUrl: '#',
+      githubUrl: 'https://github.com/PastFlex1',
       liveUrl: '#',
     },
     {
@@ -41,7 +41,7 @@ const ProjectsSection = () => {
       description: t('projects.webDesign.project4.description'),
       image: 'https://placehold.co/600x400.png',
       imageHint: 'mobile app ui',
-      githubUrl: '#',
+      githubUrl: 'https://github.com/PastFlex1',
       liveUrl: '#',
     },
   ];
@@ -52,7 +52,7 @@ const ProjectsSection = () => {
       description: t('projects.webDevelopment.project1.description'),
       image: 'https://placehold.co/600x400.png',
       imageHint: 'web application screenshot',
-      githubUrl: '#',
+      githubUrl: 'https://github.com/PastFlex1',
       liveUrl: '#',
     },
     {
@@ -60,7 +60,7 @@ const ProjectsSection = () => {
       description: t('projects.webDevelopment.project2.description'),
       image: 'https://placehold.co/600x400.png',
       imageHint: 'dashboard analytics',
-      githubUrl: '#',
+      githubUrl: 'https://github.com/PastFlex1',
       liveUrl: '#',
     },
     {
@@ -68,7 +68,7 @@ const ProjectsSection = () => {
       description: t('projects.webDevelopment.project3.description'),
       image: 'https://placehold.co/600x400.png',
       imageHint: 'blog platform react',
-      githubUrl: '#',
+      githubUrl: 'https://github.com/PastFlex1',
       liveUrl: '#',
     },
     {
@@ -76,7 +76,7 @@ const ProjectsSection = () => {
         description: t('projects.webDevelopment.project4.description'),
         image: 'https://placehold.co/600x400.png',
         imageHint: 'saas application interface',
-        githubUrl: '#',
+        githubUrl: 'https://github.com/PastFlex1',
         liveUrl: '#',
       },
   ];

@@ -16,10 +16,10 @@ const Footer = () => {
           {t('footer.copy').replace('{year}', new Date().getFullYear().toString())}
         </p>
         <div className="flex items-center gap-5">
-          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-muted-foreground hover:text-primary transition-colors">
+          <a href="https://github.com/PastFlex1" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-muted-foreground hover:text-primary transition-colors">
             <Github className="h-5 w-5" />
           </a>
-          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-muted-foreground hover:text-primary transition-colors">
+          <a href="https://www.linkedin.com/in/alex-palma-b7b86431b" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-muted-foreground hover:text-primary transition-colors">
             <Linkedin className="h-5 w-5" />
           </a>
         </div>

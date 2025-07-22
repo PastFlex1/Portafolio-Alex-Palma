@@ -135,10 +135,10 @@ const ContactSection = () => {
           </Card>
 
           <div className="flex justify-center space-x-4 mt-4">
-              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="https://github.com/PastFlex1" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-muted-foreground hover:text-primary transition-colors">
                   <Github className="h-6 w-6" />
               </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="https://www.linkedin.com/in/alex-palma-b7b86431b" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-muted-foreground hover:text-primary transition-colors">
                   <Linkedin className="h-6 w-6" />
               </a>
               <a href="mailto:alex.palma@example.com" aria-label="Email" className="text-muted-foreground hover:text-primary transition-colors">
