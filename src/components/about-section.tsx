@@ -42,11 +42,11 @@ const OrbitingSkills = () => {
   ];
 
   return (
-    <div className="absolute inset-0">
+    <div className="absolute inset-0 flex items-center justify-center">
         {orbits.map((orbit, orbitIndex) => (
             <div 
               key={orbitIndex} 
-              className={cn("absolute top-1/2 left-1/2", orbit.class)}
+              className={cn("absolute", orbit.class)}
               style={{
                 width: `${orbit.size}%`,
                 height: `${orbit.size}%`,
