@@ -6,8 +6,7 @@ import {
 } from '@icons-pack/react-simple-icons';
 import { useLanguage } from '@/context/language-context';
 import { cn } from '@/lib/utils';
-import { useEffect, useState, useRef, RefObject } from 'react';
-import { gsap } from 'gsap';
+import { useEffect, useState } from 'react';
 
 const skills = [
   // Outer orbit
@@ -27,61 +26,10 @@ const skills = [
 
 const OrbitingSkills = () => {
   const [isMounted, setIsMounted] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const iconRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
-
-  useEffect(() => {
-    if (!isMounted) return;
-
-    const container = containerRef.current;
-    if (!container) return;
-
-    const handleMouseMove = (event: MouseEvent) => {
-      const rect = container.getBoundingClientRect();
-      const mouseX = event.clientX - rect.left;
-      const mouseY = event.clientY - rect.top;
-
-      iconRefs.current.forEach((iconEl) => {
-        if (!iconEl) return;
-        
-        const iconRect = iconEl.getBoundingClientRect();
-        const iconX = iconRect.left - rect.left + iconRect.width / 2;
-        const iconY = iconRect.top - rect.top + iconRect.height / 2;
-        
-        const distance = Math.sqrt(Math.pow(mouseX - iconX, 2) + Math.pow(mouseY - iconY, 2));
-        
-        const orbitEl = iconEl.parentElement;
-        if (!orbitEl) return;
-
-        const baseDuration = parseFloat(orbitEl.style.getPropertyValue('--base-duration'));
-        const newDuration = Math.max(1, baseDuration - (150 - distance) * 0.05);
-
-        if (distance < 150) {
-           gsap.to(orbitEl, {
-            animationDuration: `${newDuration}s`,
-            duration: 0.3,
-            ease: 'power2.out'
-          });
-        } else {
-           gsap.to(orbitEl, {
-            animationDuration: `${baseDuration}s`,
-            duration: 0.8,
-            ease: 'power2.out'
-          });
-        }
-      });
-    };
-
-    container.addEventListener('mousemove', handleMouseMove);
-
-    return () => {
-      container.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, [isMounted]);
 
   if (!isMounted) {
     return null;
@@ -94,7 +42,7 @@ const OrbitingSkills = () => {
   ];
 
   return (
-    <div ref={containerRef} className="absolute inset-0">
+    <div className="absolute inset-0">
         {orbits.map((orbit, orbitIndex) => (
             <div 
               key={orbitIndex} 
@@ -104,10 +52,7 @@ const OrbitingSkills = () => {
                 height: `${orbit.size}%`,
                 border: '2px dashed hsl(var(--primary) / 0.1)',
                 borderRadius: '50%',
-                transform: 'translate(-50%, -50%)',
                 animationDuration: `${orbit.duration}s`,
-                // @ts-ignore
-                '--base-duration': orbit.duration,
               }}
             >
               {orbit.items.map((skill, skillIndex) => {
@@ -117,7 +62,6 @@ const OrbitingSkills = () => {
                 return (
                   <div
                     key={skill.name}
-                    ref={el => iconRefs.current[skills.indexOf(skill)] = el}
                     className={cn(
                       "absolute w-10 h-10 flex items-center justify-center rounded-full shadow-lg backdrop-blur-sm border border-primary/10",
                       skill.className,
