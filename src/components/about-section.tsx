@@ -35,52 +35,46 @@ const AboutSection = () => {
                     />
                 </div>
 
-                {/* Orbits */}
+                {/* Orbits and Icons Wrapper */}
                 <div className="absolute inset-0 animate-spin-slow-1">
                     <div className="absolute top-1/2 left-1/2 w-[100%] h-[100%] border-2 border-dashed border-primary/20 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+                    {skills.slice(0, 3).map((skill, index) => {
+                        const angle = (index / 3) * 2 * Math.PI;
+                        const top = `calc(50% - 20px + ${-Math.cos(angle) * 50}%)`;
+                        const left = `calc(50% - 20px + ${Math.sin(angle) * 50}%)`;
+                        return (
+                          <div key={skill.name} className={cn("absolute w-10 h-10 flex items-center justify-center rounded-full shadow-lg backdrop-blur-sm border border-primary/10 animate-spin-reverse-1", skill.className)} style={{ top, left }}>
+                            {skill.icon}
+                          </div>
+                        );
+                    })}
                 </div>
                 <div className="absolute inset-0 animate-spin-slow-2">
-                     <div className="absolute top-1/2 left-1/2 w-[75%] h-[75%] border-2 border-dashed border-accent/30 rounded-full -translate-x-1/2 -translate-y-1/2 transform rotate-45"></div>
+                     <div className="absolute top-1/2 left-1/2 w-[75%] h-[75%] border-2 border-dashed border-accent/30 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+                     {skills.slice(3, 6).map((skill, index) => {
+                        const angle = (index / 3) * 2 * Math.PI;
+                        const top = `calc(50% - 20px + ${-Math.cos(angle) * 37.5}%)`;
+                        const left = `calc(50% - 20px + ${Math.sin(angle) * 37.5}%)`;
+                        return (
+                          <div key={skill.name} className={cn("absolute w-10 h-10 flex items-center justify-center rounded-full shadow-lg backdrop-blur-sm border border-primary/10 animate-spin-reverse-2", skill.className)} style={{ top, left }}>
+                            {skill.icon}
+                          </div>
+                        );
+                    })}
                 </div>
                  <div className="absolute inset-0 animate-spin-slow-3">
-                     <div className="absolute top-1/2 left-1/2 w-[50%] h-[50%] border-2 border-dashed border-secondary-foreground/20 rounded-full -translate-x-1/2 -translate-y-1/2 transform -rotate-30"></div>
+                     <div className="absolute top-1/2 left-1/2 w-[50%] h-[50%] border-2 border-dashed border-secondary-foreground/20 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+                      {skills.slice(6, 8).map((skill, index) => {
+                        const angle = (index / 2) * 2 * Math.PI;
+                        const top = `calc(50% - 20px + ${-Math.cos(angle) * 25}%)`;
+                        const left = `calc(50% - 20px + ${Math.sin(angle) * 25}%)`;
+                        return (
+                          <div key={skill.name} className={cn("absolute w-10 h-10 flex items-center justify-center rounded-full shadow-lg backdrop-blur-sm border border-primary/10 animate-spin-reverse-3", skill.className)} style={{ top, left }}>
+                            {skill.icon}
+                          </div>
+                        );
+                    })}
                 </div>
-
-                {/* Skill Icons */}
-                {skills.map((skill, index) => {
-                    const angle = (index / skills.length) * 2 * Math.PI;
-                    const orbitIndex = index % 3;
-                    let radius;
-                    switch(orbitIndex) {
-                        case 0: radius = 48; break; // Innermost orbit (e.g. w-96/2)
-                        case 1: radius = 37.5; break; // Middle orbit
-                        case 2: radius = 25; break; // Outermost orbit
-                    }
-                    
-                    const animationName = `animate-orbit-${orbitIndex + 1}`;
-                    const top = `calc(50% - 20px + ${-Math.cos(angle) * radius}%)`;
-                    const left = `calc(50% - 20px + ${Math.sin(angle) * radius}%)`;
-
-                    return (
-                      <div
-                        key={skill.name}
-                        className={cn(
-                          "absolute w-10 h-10 flex items-center justify-center rounded-full shadow-lg backdrop-blur-sm border border-primary/10",
-                          skill.className
-                        )}
-                        style={{
-                          top: top,
-                          left: left,
-                          animationName: `orbit-reverse-${orbitIndex + 1}`,
-                          animationDuration: `${15 + orbitIndex * 5}s`,
-                          animationTimingFunction: 'linear',
-                          animationIterationCount: 'infinite',
-                        }}
-                      >
-                        {skill.icon}
-                      </div>
-                    );
-                })}
             </div>
           </div>
           <div className="space-y-6 text-center lg:text-left">
