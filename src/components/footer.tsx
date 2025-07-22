@@ -6,7 +6,7 @@ const Footer = () => {
   const { t } = useLanguage();
   
   return (
-    <footer className="w-full py-8 border-t bg-background">
+    <footer className="w-full h-screen flex items-center justify-center border-t bg-background">
       <div className="container mx-auto flex flex-col items-center justify-between gap-6 px-4 md:flex-row md:px-6">
         <Link href="/" className="flex items-center gap-2" aria-label="Volver al inicio">
             <Code2 className="h-7 w-7 text-primary" />

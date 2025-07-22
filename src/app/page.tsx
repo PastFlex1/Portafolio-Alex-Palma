@@ -13,34 +13,36 @@ import ScrollVelocity from '@/components/scroll-velocity';
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen bg-background relative">
+    <div className="bg-background">
       <Particles 
-            className="absolute inset-0 -z-10 h-full w-full"
+            className="fixed inset-0 -z-10 h-full w-full"
             particleColors={['#9400D3', '#FF69B4', '#E6E6FA']}
             particleCount={500}
             particleBaseSize={30}
             particleSpread={15}
             speed={0.05}
       />
-      <div className="absolute inset-0 -z-10 h-full w-full bg-gradient-to-b from-background/50 via-background/80 to-background"></div>
+      <div className="fixed inset-0 -z-10 h-full w-full bg-gradient-to-b from-background/50 via-background/80 to-background"></div>
 
       <Header />
-      <main className="flex-grow">
-        <HeroSection />
-        <AboutSection />
-        <SkillsSection />
-        <ScrollVelocity 
-            texts={["- Frontend Developer -", "- UI/UX Designer -"]}
-            velocity={50}
-            className="font-headline text-primary"
-            scrollerClassName="md:text-[7rem] md:leading-[7rem]"
-        />
-        <ExperienceTimelineSection />
-        <ProjectsSection />
-        <ResumeSection />
-        <ContactSection />
-      </main>
-      <Footer />
+      <div className="snap-y snap-mandatory h-screen w-screen overflow-y-auto overflow-x-hidden">
+        <div className="snap-start"><HeroSection /></div>
+        <div className="snap-start"><AboutSection /></div>
+        <div className="snap-start"><SkillsSection /></div>
+        <div className="snap-start">
+            <ScrollVelocity 
+                texts={["- Frontend Developer -", "- UI/UX Designer -"]}
+                velocity={50}
+                className="font-headline text-primary"
+                scrollerClassName="md:text-[7rem] md:leading-[7rem]"
+            />
+        </div>
+        <div className="snap-start"><ExperienceTimelineSection /></div>
+        <div className="snap-start"><ProjectsSection /></div>
+        <div className="snap-start"><ResumeSection /></div>
+        <div className="snap-start"><ContactSection /></div>
+        <div className="snap-start"><Footer /></div>
+      </div>
     </div>
   );
 }

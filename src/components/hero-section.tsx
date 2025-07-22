@@ -8,7 +8,7 @@ import SplitText from './split-text';
 const HeroSection = () => {
   const { t } = useLanguage();
   return (
-    <section id="home" className="relative flex min-h-screen w-full flex-col items-center justify-center text-center">
+    <section id="home" className="relative flex h-screen w-full flex-col items-center justify-center text-center">
       <div className="container px-4 md:px-6 z-10">
         <div className="grid gap-8">
           <div className="flex flex-col items-center justify-center space-y-6">
