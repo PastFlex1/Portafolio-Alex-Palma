@@ -9,13 +9,11 @@ import ResumeSection from '@/components/resume-section';
 import ContactSection from '@/components/contact-section';
 import Footer from '@/components/footer';
 import Particles from '@/components/particles';
-import TextCursor from '@/components/text-cursor';
 import ScrollVelocity from '@/components/scroll-velocity';
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-background relative">
-      <TextCursor />
       <Particles 
             className="absolute inset-0 -z-10 h-full w-full"
             particleColors={['#9400D3', '#FF69B4', '#E6E6FA']}

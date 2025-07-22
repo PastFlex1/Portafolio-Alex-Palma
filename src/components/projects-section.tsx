@@ -82,35 +82,37 @@ const ProjectsSection = () => {
   const renderProjectGrid = (projects: any[]) => (
     <div className="mx-auto grid gap-8 pt-12 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
       {projects.map((project) => (
-         <Card key={project.title} className="group overflow-hidden rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
-            <TiltedCard 
-              imageSrc={project.image}
-              altText={`Captura de pantalla de ${project.title}`}
-              imageWidth='100%'
-              imageHeight='100%'
-              containerHeight='250px'
-              captionText={project.title}
-              showMobileWarning={false}
-            />
-            <div className="p-6 bg-card flex-grow flex flex-col">
-                <h3 className="font-headline text-xl font-bold mb-2">{project.title}</h3>
-                <p className="text-muted-foreground text-sm mb-4 min-h-[40px] flex-grow">{project.description}</p>
-                <div className="flex justify-start gap-4 mt-auto">
-                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                        <Button variant="outline" size="sm">
-                        <Github className="mr-2 h-4 w-4" />
-                        {t('projects.github')}
-                        </Button>
-                    </a>
-                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                        <Button size="sm">
-                        <ExternalLink className="mr-2 h-4 w-4" />
-                        {t('projects.demo')}
-                        </Button>
-                    </a>
+        <TiltedCard key={project.title}>
+            <Card className="group overflow-hidden rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+                <div className="relative h-[250px] w-full overflow-hidden rounded-t-xl">
+                    <Image
+                        src={project.image}
+                        alt={`Captura de pantalla de ${project.title}`}
+                        fill
+                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                        data-ai-hint={project.imageHint}
+                    />
                 </div>
-            </div>
-        </Card>
+                <div className="p-6 bg-card flex-grow flex flex-col">
+                    <h3 className="font-headline text-xl font-bold mb-2">{project.title}</h3>
+                    <p className="text-muted-foreground text-sm mb-4 min-h-[40px] flex-grow">{project.description}</p>
+                    <div className="flex justify-start gap-4 mt-auto">
+                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                            <Button variant="outline" size="sm">
+                            <Github className="mr-2 h-4 w-4" />
+                            {t('projects.github')}
+                            </Button>
+                        </a>
+                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                            <Button size="sm">
+                            <ExternalLink className="mr-2 h-4 w-4" />
+                            {t('projects.demo')}
+                            </Button>
+                        </a>
+                    </div>
+                </div>
+            </Card>
+        </TiltedCard>
       ))}
     </div>
   );
