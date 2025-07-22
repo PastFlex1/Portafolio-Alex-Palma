@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowDown, Download } from 'lucide-react';
 import Link from 'next/link';
 import { useLanguage } from '@/context/language-context';
+import SplitText from './split-text';
 
 const HeroSection = () => {
   const { t } = useLanguage();
@@ -16,7 +17,7 @@ const HeroSection = () => {
             <div className="space-y-4">
               <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-medium text-secondary-foreground">{t('hero.role')}</div>
               <h1 className="font-headline text-4xl font-extrabold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
-                {t('hero.title')}
+                <SplitText text={t('hero.title')} />
               </h1>
               <p className="mx-auto max-w-[700px] text-lg text-muted-foreground md:text-xl">
                 {t('hero.subtitle')}
