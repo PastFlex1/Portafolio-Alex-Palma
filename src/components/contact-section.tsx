@@ -141,7 +141,7 @@ const ContactSection = () => {
               <a href="https://www.linkedin.com/in/alex-palma-b7b86431b" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-muted-foreground hover:text-primary transition-colors">
                   <Linkedin className="h-6 w-6" />
               </a>
-              <a href="mailto:alex.palma@example.com" aria-label="Email" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="mailto:past6867@gmail.com" aria-label="Email" className="text-muted-foreground hover:text-primary transition-colors">
                   <Mail className="h-6 w-6" />
               </a>
           </div>
