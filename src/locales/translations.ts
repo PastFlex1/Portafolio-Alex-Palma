@@ -78,8 +78,8 @@ const translations = {
       },
       webDevelopment: {
         project1: {
-          title: 'Aplicación de Tareas con React',
-          description: 'Una app completa para gestionar tareas con autenticación y base de datos en tiempo real, construida con React y Firebase.',
+          title: 'Clima Genius',
+          description: 'Una aplicación para consultar el clima y la zona horaria de cualquier ciudad en tiempo real, construida con React y APIs externas.',
         },
         project2: {
           title: 'Dashboard de Análisis con Next.js',
@@ -224,8 +224,8 @@ const translations = {
       },
       webDevelopment: {
         project1: {
-          title: 'Task Management App with React',
-          description: 'A complete to-do app with authentication and a real-time database, built with React and Firebase.',
+          title: 'Clima Genius',
+          description: 'An application to check the weather and time zone of any city in real time, built with React and external APIs.',
         },
         project2: {
           title: 'Analytics Dashboard with Next.js',
