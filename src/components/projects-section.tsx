@@ -50,8 +50,7 @@ const ProjectsSection = () => {
     {
       title: t('projects.webDevelopment.project1.title'),
       description: t('projects.webDevelopment.project1.description'),
-      image: 'https://placehold.co/600x400.png',
-      imageHint: 'weather application screenshot',
+      image: '/clima genius.png',
       githubUrl: 'https://github.com/PastFlex1/clima-genius',
       liveUrl: 'https://climagen.netlify.app/',
     },
@@ -94,7 +93,7 @@ const ProjectsSection = () => {
                         alt={`Captura de pantalla de ${project.title}`}
                         fill
                         className="object-cover transition-transform duration-300 group-hover:scale-105"
-                        data-ai-hint={project.imageHint}
+                        {...(project.imageHint ? { 'data-ai-hint': project.imageHint } : {})}
                     />
                 </div>
                 <div className="p-6 flex-grow flex flex-col">
