@@ -96,7 +96,7 @@ const ProjectsSection = () => {
                     <h3 className="font-headline text-xl font-bold mb-2">{project.title}</h3>
                     <p className="text-muted-foreground text-sm mb-4 min-h-[40px] flex-grow">{project.description}</p>
                     <div className="flex justify-start gap-4 mt-auto">
-                        {!isDesign && project.githubUrl && (
+                        {!isDesign && (
                           <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                               <Button variant="outline" size="sm">
                               <Github className="mr-2 h-4 w-4" />
