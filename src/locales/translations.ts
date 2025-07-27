@@ -96,8 +96,8 @@ const translations = {
       },
       webDesign: {
         project1: {
-          title: 'Diseño de E-commerce de Moda',
-          description: 'Prototipo de alta fidelidad en Figma para una tienda online, centrado en la experiencia de usuario y la conversión.',
+          title: 'Breezy - App del Clima',
+          description: 'Prototipo de alta fidelidad en Figma para una aplicación de pronóstico del tiempo, enfocado en una interfaz limpia y una experiencia de usuario clara.',
         },
         project2: {
           title: 'Rediseño de Portafolio para Fotógrafo',
@@ -242,8 +242,8 @@ const translations = {
       },
       webDesign: {
         project1: {
-          title: 'Fashion E-commerce Design',
-          description: 'High-fidelity prototype in Figma for an online store, focusing on user experience and conversion.',
+          title: 'Breezy - Weather App',
+          description: 'High-fidelity prototype in Figma for a weather forecast application, focused on a clean interface and a clear user experience.',
         },
         project2: {
           title: 'Portfolio Redesign for Photographer',

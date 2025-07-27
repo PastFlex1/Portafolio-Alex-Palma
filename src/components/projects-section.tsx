@@ -15,9 +15,9 @@ const ProjectsSection = () => {
     {
       title: t('projects.webDesign.project1.title'),
       description: t('projects.webDesign.project1.description'),
-      image: 'https://placehold.co/600x400.png',
-      imageHint: 'e-commerce website design',
-      liveUrl: '#',
+      image: '/breezy.png',
+      imageHint: 'weather app',
+      liveUrl: 'https://www.figma.com/design/fZHPwLn0MkTtC1utLR7Dbp/Untitled?node-id=0-1&m=dev&t=FHT6u2os3TJ34fCw-1',
     },
     {
       title: t('projects.webDesign.project2.title'),
@@ -104,12 +104,14 @@ const ProjectsSection = () => {
                               </Button>
                           </a>
                         )}
-                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                            <Button size="sm">
-                            <ExternalLink className="mr-2 h-4 w-4" />
-                            {t('projects.demo')}
-                            </Button>
-                        </a>
+                        {project.liveUrl && (
+                          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                              <Button size="sm">
+                              <ExternalLink className="mr-2 h-4 w-4" />
+                              {t('projects.demo')}
+                              </Button>
+                          </a>
+                        )}
                     </div>
                 </div>
             </Card>
