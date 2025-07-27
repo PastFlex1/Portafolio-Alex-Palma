@@ -76,7 +76,7 @@ const ProjectsSection = () => {
       },
   ];
 
-  const renderProjectGrid = (projects: any[]) => (
+  const renderProjectGrid = (projects: any[], isDesign: boolean) => (
     <div className="mx-auto grid gap-8 pt-12 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
       {projects.map((project) => (
         <TiltedCard key={project.title}>
@@ -96,7 +96,7 @@ const ProjectsSection = () => {
                     <h3 className="font-headline text-xl font-bold mb-2">{project.title}</h3>
                     <p className="text-muted-foreground text-sm mb-4 min-h-[40px] flex-grow">{project.description}</p>
                     <div className="flex justify-start gap-4 mt-auto">
-                        {project.githubUrl && (
+                        {!isDesign && project.githubUrl && (
                           <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                               <Button variant="outline" size="sm">
                               <Github className="mr-2 h-4 w-4" />
@@ -122,19 +122,19 @@ const ProjectsSection = () => {
   );
 
   return (
-    <section id="projects" className="w-full py-24 md:py-32 bg-secondary/50 dark:bg-secondary/20">
+    <section id="projects" className="w-full py-24 md:py-32">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-3">
-            <div className="inline-block rounded-lg bg-background px-3 py-1 text-sm font-medium text-foreground">{t('projects.badge')}</div>
+            <div className="inline-block rounded-lg bg-secondary px-3 py-1 text-sm font-medium text-secondary-foreground">{t('projects.badge')}</div>
             <h2 className="font-headline text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
                 <SplitText
                     text={t('projects.title')}
-                    from={{ y: 120, scaleY: 2.3, scaleX: 0.7, opacity: 0 }}
-                    to={{ y: 0, scaleY: 1, scaleX: 1, opacity: 1 }}
+                    from={{ y: 120, scaleY: 2.3, scaleX: 0.7, opacity: 0, visibility: 'hidden' }}
+                    to={{ y: 0, scaleY: 1, scaleX: 1, opacity: 1, visibility: 'visible' }}
                     duration={1}
                     ease="back.inOut(2)"
-                    delay={30}
+                    stagger={0.03}
                 />
             </h2>
             <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
@@ -149,10 +149,10 @@ const ProjectsSection = () => {
             <TabsTrigger value="design">{t('projects.tabs.design')}</TabsTrigger>
           </TabsList>
           <TabsContent value="development">
-            {renderProjectGrid(webDevelopmentProjects)}
+            {renderProjectGrid(webDevelopmentProjects, false)}
           </TabsContent>
           <TabsContent value="design">
-            {renderProjectGrid(webDesignProjects)}
+            {renderProjectGrid(webDesignProjects, true)}
           </TabsContent>
         </Tabs>
 
