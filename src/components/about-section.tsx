@@ -91,12 +91,11 @@ const AboutSection = () => {
             <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96">
                 <div className="absolute inset-0 flex items-center justify-center">
                     <Image
-                      src="https://placehold.co/400x400.png"
+                      src="/foto.jpeg"
                       alt="Retrato profesional de Alex Palma"
                       width={400}
                       height={400}
                       className="object-cover rounded-full w-40 h-40 md:w-48 md:h-48 border-4 border-background shadow-lg"
-                      data-ai-hint="professional portrait ecuadorian"
                     />
                 </div>
                 <OrbitingSkills />
