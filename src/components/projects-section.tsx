@@ -22,8 +22,8 @@ const ProjectsSection = () => {
     {
       title: t('projects.webDesign.project2.title'),
       description: t('projects.webDesign.project2.description'),
-      image: 'https://placehold.co/600x400.png',
-      imageHint: 'portfolio design figma',
+      image: '/diseño web/diseñoweb2.png',
+      imageHint: 'ecommerce fashion prototype',
       liveUrl: '#',
     },
     {
@@ -104,7 +104,7 @@ const ProjectsSection = () => {
                               </Button>
                           </a>
                         )}
-                        {project.liveUrl && (
+                        {project.liveUrl && project.liveUrl !== '#' && (
                           <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                               <Button size="sm">
                               <ExternalLink className="mr-2 h-4 w-4" />

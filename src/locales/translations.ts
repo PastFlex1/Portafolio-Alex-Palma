@@ -100,8 +100,8 @@ const translations = {
           description: 'Prototipo de alta fidelidad en Figma para una aplicación de pronóstico del tiempo, enfocado en una interfaz limpia y una experiencia de usuario clara.',
         },
         project2: {
-          title: 'Rediseño de Portafolio para Fotógrafo',
-          description: 'Concepto visual y prototipo interactivo para un fotógrafo profesional, destacando su trabajo con un diseño minimalista.',
+          title: 'Concepto Shopify - Tienda de Moda',
+          description: 'Prototipo de alta fidelidad para una tienda online de moda, inspirado en plataformas como Shein y Temu, con un enfoque en la experiencia de compra visual.',
         },
         project3: {
           title: 'Maqueta de Landing Page para App',
@@ -246,8 +246,8 @@ const translations = {
           description: 'High-fidelity prototype in Figma for a weather forecast application, focused on a clean interface and a clear user experience.',
         },
         project2: {
-          title: 'Portfolio Redesign for Photographer',
-          description: 'Visual concept and interactive prototype for a professional photographer, highlighting their work with a minimalist design.',
+          title: 'Shopify Concept - Fashion Store',
+          description: 'High-fidelity prototype for a fashion e-commerce store, inspired by platforms like Shein and Temu, focusing on a visual shopping experience.',
         },
         project3: {
           title: 'Landing Page Mockup for App',
@@ -288,7 +288,7 @@ const translations = {
       }
     },
     footer: {
-      copy: '© {year} Alex Palma. Designed and built with ❤️.'
+      copy: '© {year} Alex Palma. Diseñado y construido con ❤️.'
     }
   },
 };
