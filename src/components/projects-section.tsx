@@ -17,7 +17,6 @@ const ProjectsSection = () => {
       description: t('projects.webDesign.project1.description'),
       image: 'https://placehold.co/600x400.png',
       imageHint: 'e-commerce website design',
-      githubUrl: 'https://github.com/PastFlex1',
       liveUrl: '#',
     },
     {
@@ -25,7 +24,6 @@ const ProjectsSection = () => {
       description: t('projects.webDesign.project2.description'),
       image: 'https://placehold.co/600x400.png',
       imageHint: 'portfolio design figma',
-      githubUrl: 'https://github.com/PastFlex1',
       liveUrl: '#',
     },
     {
@@ -33,7 +31,6 @@ const ProjectsSection = () => {
       description: t('projects.webDesign.project3.description'),
       image: 'https://placehold.co/600x400.png',
       imageHint: 'landing page mockup',
-      githubUrl: 'https://github.com/PastFlex1',
       liveUrl: '#',
     },
     {
@@ -41,7 +38,6 @@ const ProjectsSection = () => {
       description: t('projects.webDesign.project4.description'),
       image: 'https://placehold.co/600x400.png',
       imageHint: 'mobile app ui',
-      githubUrl: 'https://github.com/PastFlex1',
       liveUrl: '#',
     },
   ];
@@ -100,12 +96,14 @@ const ProjectsSection = () => {
                     <h3 className="font-headline text-xl font-bold mb-2">{project.title}</h3>
                     <p className="text-muted-foreground text-sm mb-4 min-h-[40px] flex-grow">{project.description}</p>
                     <div className="flex justify-start gap-4 mt-auto">
-                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                            <Button variant="outline" size="sm">
-                            <Github className="mr-2 h-4 w-4" />
-                            {t('projects.github')}
-                            </Button>
-                        </a>
+                        {project.githubUrl && (
+                          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                              <Button variant="outline" size="sm">
+                              <Github className="mr-2 h-4 w-4" />
+                              {t('projects.github')}
+                              </Button>
+                          </a>
+                        )}
                         <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                             <Button size="sm">
                             <ExternalLink className="mr-2 h-4 w-4" />
