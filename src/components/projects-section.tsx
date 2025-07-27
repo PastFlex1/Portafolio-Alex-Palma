@@ -31,7 +31,7 @@ const ProjectsSection = () => {
       description: t('projects.webDesign.project3.description'),
       image: '/diseño web/diseñoweb3.png',
       imageHint: 'mobile game ui',
-      liveUrl: '#',
+      liveUrl: 'https://www.figma.com/design/CSvq2DECxJejrwsgp1BKrg/Untitled?node-id=0-1&m=dev&t=tsqCeielyoh8IRew-1',
     },
     {
       title: t('projects.webDesign.project4.title'),
