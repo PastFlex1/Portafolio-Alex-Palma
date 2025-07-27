@@ -15,7 +15,7 @@ const ProjectsSection = () => {
     {
       title: t('projects.webDesign.project1.title'),
       description: t('projects.webDesign.project1.description'),
-      image: '/breezy.png',
+      image: '/diseño web/diseñoweb1.png',
       imageHint: 'weather app',
       liveUrl: 'https://www.figma.com/design/fZHPwLn0MkTtC1utLR7Dbp/Untitled?node-id=0-1&m=dev&t=FHT6u2os3TJ34fCw-1',
     },
