@@ -29,8 +29,8 @@ const ProjectsSection = () => {
     {
       title: t('projects.webDesign.project3.title'),
       description: t('projects.webDesign.project3.description'),
-      image: 'https://placehold.co/600x400.png',
-      imageHint: 'landing page mockup',
+      image: '/diseño web/diseñoweb3.png',
+      imageHint: 'mobile game ui',
       liveUrl: '#',
     },
     {
@@ -96,7 +96,7 @@ const ProjectsSection = () => {
                     <h3 className="font-headline text-xl font-bold mb-2">{project.title}</h3>
                     <p className="text-muted-foreground text-sm mb-4 min-h-[40px] flex-grow">{project.description}</p>
                     <div className="flex justify-start gap-4 mt-auto">
-                        {!isDesign && (
+                        {!isDesign && project.githubUrl && (
                           <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                               <Button variant="outline" size="sm">
                               <Github className="mr-2 h-4 w-4" />

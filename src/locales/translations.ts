@@ -104,8 +104,8 @@ const translations = {
           description: 'Prototipo de alta fidelidad para una tienda online de moda, inspirado en plataformas como Shein y Temu, con un enfoque en la experiencia de compra visual.',
         },
         project3: {
-          title: 'Maqueta de Landing Page para App',
-          description: 'Diseño de una landing page atractiva y persuasiva para una aplicación móvil, desde el wireframe hasta el diseño final.',
+          title: 'Prototipo de Juego de Comida',
+          description: 'Un prototipo de interfaz de usuario vibrante y atractivo para un juego de cocina móvil, diseñado en Figma con un enfoque en interacciones divertidas y una estética lúdica.',
         },
         project4: {
           title: 'UI Kit para Aplicación Móvil',
@@ -250,8 +250,8 @@ const translations = {
           description: 'High-fidelity prototype for a fashion e-commerce store, inspired by platforms like Shein and Temu, focusing on a visual shopping experience.',
         },
         project3: {
-          title: 'Landing Page Mockup for App',
-          description: 'Design of an attractive and persuasive landing page for a mobile app, from wireframe to final design.',
+          title: 'Food Game Prototype',
+          description: 'A vibrant and engaging UI prototype for a mobile cooking game, designed in Figma with a focus on fun interactions and a playful aesthetic.',
         },
         project4: {
           title: 'UI Kit for Mobile Application',
@@ -288,7 +288,7 @@ const translations = {
       }
     },
     footer: {
-      copy: '© {year} Alex Palma. Diseñado y construido con ❤️.'
+      copy: '© {year} Alex Palma. Designed and built with ❤️.'
     }
   },
 };
