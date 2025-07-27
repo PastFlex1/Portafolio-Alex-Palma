@@ -24,7 +24,7 @@ const ProjectsSection = () => {
       description: t('projects.webDesign.project2.description'),
       image: '/diseño web/diseñoweb2.png',
       imageHint: 'ecommerce fashion prototype',
-      liveUrl: '#',
+      liveUrl: 'https://www.figma.com/design/rtoJHNqrA5WYu7lrneLMsB/Untitled?node-id=0-1&m=dev&t=jg9hnA1pF8g7P1P6-1',
     },
     {
       title: t('projects.webDesign.project3.title'),
