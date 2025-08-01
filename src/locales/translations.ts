@@ -82,8 +82,8 @@ const translations = {
           description: 'Una aplicación para consultar el clima y la zona horaria de cualquier ciudad en tiempo real, construida con React y APIs externas.',
         },
         project2: {
-          title: 'Dashboard de Análisis con Next.js',
-          description: 'Dashboard interactivo para la visualización de datos, utilizando Next.js para SSR y Recharts para los gráficos.',
+          title: 'Sistema de Citas Médicas (MedicSchedule)',
+          description: 'Una aplicación web para agendar y gestionar citas médicas, pensada para optimizar el tiempo de doctores y pacientes.',
         },
         project3: {
           title: 'Plataforma de Blogging',
@@ -228,8 +228,8 @@ const translations = {
           description: 'An application to check the weather and time zone of any city in real time, built with React and external APIs.',
         },
         project2: {
-          title: 'Analytics Dashboard with Next.js',
-          description: 'Interactive dashboard for data visualization, using Next.js for SSR and Recharts for the charts.',
+          title: 'Medical Appointment System (MedicSchedule)',
+          description: 'A web application to schedule and manage medical appointments, designed to optimize time for doctors and patients.',
         },
         project3: {
           title: 'Blogging Platform',
