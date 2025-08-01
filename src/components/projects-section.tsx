@@ -53,7 +53,7 @@ const ProjectsSection = () => {
     {
       title: t('projects.webDevelopment.project2.title'),
       description: t('projects.webDevelopment.project2.description'),
-      image: 'https://placehold.co/600x400.png',
+      image: '/Medic Schedule.png',
       imageHint: 'dashboard analytics',
       githubUrl: 'https://github.com/PastFlex1/MedicSchedule.git',
       liveUrl: 'https://medicschedul.netlify.app/',
