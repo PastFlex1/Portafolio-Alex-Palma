@@ -61,7 +61,7 @@ const ProjectsSection = () => {
     {
       title: t('projects.webDevelopment.project3.title'),
       description: t('projects.webDevelopment.project3.description'),
-      image: 'https://placehold.co/600x400.png',
+      image: '/Zenith.png',
       imageHint: 'meditation app interface',
       githubUrl: 'https://github.com/PastFlex1/Programa-bienestar-y-salud.git',
       liveUrl: 'https://studio--zenith-ue6jq.us-central1.hosted.app/auth/login',
