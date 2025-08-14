@@ -86,8 +86,8 @@ const translations = {
           description: 'Una aplicación web para agendar y gestionar citas médicas, pensada para optimizar el tiempo de doctores y pacientes.',
         },
         project3: {
-          title: 'Plataforma de Blogging',
-          description: 'Un blog con todas las funciones, panel de administrador y generación de sitios estáticos (SSG) para un rendimiento óptimo.',
+          title: 'Zenith - App de Meditación',
+          description: 'Una aplicación de meditación con sonidos relajantes y ejercicios de respiración para encontrar la calma y el enfoque.',
         },
         project4: {
           title: 'SaaS para Gestión de Proyectos',
@@ -232,8 +232,8 @@ const translations = {
           description: 'A web application to schedule and manage medical appointments, designed to optimize time for doctors and patients.',
         },
         project3: {
-          title: 'Blogging Platform',
-          description: 'A full-featured blog with an admin panel and static site generation (SSG) for optimal performance.',
+          title: 'Zenith - Meditation App',
+          description: 'A meditation app with relaxing sounds and breathing exercises to find calm and focus.',
         },
         project4: {
           title: 'SaaS for Project Management',
