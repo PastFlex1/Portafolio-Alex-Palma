@@ -87,7 +87,7 @@ const translations = {
         },
         project3: {
           title: 'Zenith - App de Meditación',
-          description: 'Una aplicación de meditación con sonidos relajantes y ejercicios de respiración para encontrar la calma y el enfoque.',
+          description: 'App de bienestar con meditación, seguimiento de hábitos y diario personal para promover la calma y el autoconocimiento.',
         },
         project4: {
           title: 'SaaS para Gestión de Proyectos',
@@ -233,7 +233,7 @@ const translations = {
         },
         project3: {
           title: 'Zenith - Meditation App',
-          description: 'A meditation app with relaxing sounds and breathing exercises to find calm and focus.',
+          description: 'A wellness app with meditation, habit tracking, and a personal diary to promote calm and self-awareness.',
         },
         project4: {
           title: 'SaaS for Project Management',
