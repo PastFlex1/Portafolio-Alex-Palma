@@ -33,7 +33,7 @@ const sendEmailFlow = ai.defineFlow(
     // IMPORTANT: Paste your Resend API key here for it to work.
     // This is not a recommended practice for production, but it will solve the problem in this environment.
     //
-    const apiKey = "pega_aqui_tu_api_key_de_resend";
+    const apiKey = "re_ffYsYMqN...full_access";
 
     if (!apiKey || apiKey === "pega_aqui_tu_api_key_de_resend") {
       const errorMsg = 'Resend API key is not configured. Please paste your API key in src/ai/flows/send-email-flow.ts';
