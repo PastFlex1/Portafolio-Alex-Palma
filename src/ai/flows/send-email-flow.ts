@@ -11,8 +11,6 @@ import { ai } from '@/ai/genkit';
 import { z } from 'genkit';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 const SendEmailInputSchema = z.object({
   name: z.string().describe('The name of the person sending the email.'),
   email: z.string().email().describe('The email address of the sender.'),
@@ -31,6 +29,7 @@ const sendEmailFlow = ai.defineFlow(
     outputSchema: z.object({ success: z.boolean(), error: z.string().optional() }),
   },
   async (input) => {
+    const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
     try {
       await resend.emails.send({
         from: 'Portfolio <contact@nuevodominio.store>',
