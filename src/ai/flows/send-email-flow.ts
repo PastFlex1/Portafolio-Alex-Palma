@@ -10,9 +10,6 @@
 import { ai } from '@/ai/genkit';
 import { z } from 'genkit';
 import { Resend } from 'resend';
-import * as dotenv from 'dotenv';
-
-dotenv.config();
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
