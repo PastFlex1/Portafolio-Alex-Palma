@@ -29,8 +29,16 @@ const sendEmailFlow = ai.defineFlow(
     outputSchema: z.object({ success: z.boolean(), error: z.string().optional() }),
   },
   async (input) => {
-    const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
+    const apiKey = process.env.NEXT_PUBLIC_RESEND_API_KEY;
+
+    if (!apiKey) {
+      const errorMsg = 'Resend API key is not configured. Please set NEXT_PUBLIC_RESEND_API_KEY in your environment variables.';
+      console.error(errorMsg);
+      return { success: false, error: errorMsg };
+    }
+
     try {
+      const resend = new Resend(apiKey);
       await resend.emails.send({
         from: 'Portfolio <contact@nuevodominio.store>',
         to: ['past6867@gmail.com'],
