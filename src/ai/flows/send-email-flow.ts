@@ -44,7 +44,7 @@ const sendEmailFlow = ai.defineFlow(
     try {
       const resend = new Resend(apiKey);
       await resend.emails.send({
-        from: 'Portfolio <contact@nuevodominio.store>',
+        from: 'Portfolio <onboarding@resend.dev>',
         to: ['past667@gmail.com'],
         subject: `New message from ${input.name} via your portfolio`,
         reply_to: input.email,
