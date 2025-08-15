@@ -33,7 +33,7 @@ const sendEmailFlow = ai.defineFlow(
     // IMPORTANT: Paste your Resend API key here for it to work.
     // This is not a recommended practice for production, but it will solve the problem in this environment.
     //
-    const apiKey = "re_ffYsYMqN...full_access";
+    const apiKey = "re_ffYsYMqN_full_access_key_placeholder";
 
     if (!apiKey || apiKey === "pega_aqui_tu_api_key_de_resend") {
       const errorMsg = 'Resend API key is not configured. Please paste your API key in src/ai/flows/send-email-flow.ts';
@@ -45,7 +45,7 @@ const sendEmailFlow = ai.defineFlow(
       const resend = new Resend(apiKey);
       await resend.emails.send({
         from: 'Portfolio <contact@nuevodominio.store>',
-        to: ['past6867@gmail.com'],
+        to: ['past667@gmail.com'],
         subject: `New message from ${input.name} via your portfolio`,
         reply_to: input.email,
         html: `
