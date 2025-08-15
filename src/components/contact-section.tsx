@@ -4,7 +4,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
-import { useState } from 'react';
+import { useState, useTransition } from 'react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -17,7 +17,7 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Github, Linkedin, Mail, CheckCircle } from 'lucide-react';
+import { Github, Linkedin, Mail, CheckCircle, Loader2 } from 'lucide-react';
 import { Card, CardContent } from './ui/card';
 import { useLanguage } from '@/context/language-context';
 import SplitText from './split-text';
@@ -29,10 +29,14 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from "@/components/ui/alert-dialog"
+} from "@/components/ui/alert-dialog";
+import { useToast } from '@/hooks/use-toast';
+import { sendEmail } from '@/ai/flows/send-email-flow';
 
 const ContactSection = () => {
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
+  const [isPending, startTransition] = useTransition();
+  const { toast } = useToast();
   const { t, language } = useLanguage();
 
   const formSchema = z.object({
@@ -54,14 +58,23 @@ const ContactSection = () => {
       email: '',
       message: '',
     },
-    // The key is used to re-render the form when the language changes
     key: language,
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    setIsSuccessModalOpen(true);
-    form.reset();
+    startTransition(async () => {
+      const result = await sendEmail(values);
+      if (result.success) {
+        setIsSuccessModalOpen(true);
+        form.reset();
+      } else {
+        toast({
+          variant: "destructive",
+          title: "Error",
+          description: "Hubo un problema al enviar el mensaje. Por favor, inténtalo de nuevo.",
+        });
+      }
+    });
   }
 
   return (
@@ -96,7 +109,7 @@ const ContactSection = () => {
                           <FormItem>
                               <FormLabel>{t('contact.form.name')}</FormLabel>
                               <FormControl>
-                              <Input placeholder={t('contact.form.name_placeholder')} {...field} />
+                              <Input placeholder={t('contact.form.name_placeholder')} {...field} disabled={isPending} />
                               </FormControl>
                               <FormMessage />
                           </FormItem>
@@ -109,7 +122,7 @@ const ContactSection = () => {
                           <FormItem>
                               <FormLabel>{t('contact.form.email')}</FormLabel>
                               <FormControl>
-                              <Input placeholder={t('contact.form.email_placeholder')} {...field} />
+                              <Input placeholder={t('contact.form.email_placeholder')} {...field} disabled={isPending} />
                               </FormControl>
                               <FormMessage />
                           </FormItem>
@@ -122,13 +135,16 @@ const ContactSection = () => {
                           <FormItem>
                               <FormLabel>{t('contact.form.message')}</FormLabel>
                               <FormControl>
-                              <Textarea placeholder={t('contact.form.message_placeholder')} {...field} rows={5} />
+                              <Textarea placeholder={t('contact.form.message_placeholder')} {...field} rows={5} disabled={isPending} />
                               </FormControl>
                               <FormMessage />
                           </FormItem>
                           )}
                       />
-                      <Button type="submit" className="w-full !mt-6" size="lg">{t('contact.form.submit')}</Button>
+                      <Button type="submit" className="w-full !mt-6" size="lg" disabled={isPending}>
+                        {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                        {t('contact.form.submit')}
+                      </Button>
                       </form>
                   </Form>
               </CardContent>
