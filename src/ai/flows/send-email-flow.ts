@@ -46,16 +46,18 @@ const sendEmailFlow = ai.defineFlow(
       await resend.emails.send({
         from: 'Portfolio <onboarding@resend.dev>',
         to: ['past667@gmail.com'],
-        subject: `New message from ${input.name} via your portfolio`,
-        reply_to: input.email,
+        subject: `Nuevo mensaje de tu portfolio de parte de: ${input.name}`,
         html: `
-          <div style="font-family: sans-serif; padding: 20px; color: #333;">
-            <h2 style="color: #9400D3;">New Message from Portfolio Contact Form</h2>
-            <p><strong>Name:</strong> ${input.name}</p>
-            <p><strong>Email:</strong> ${input.email}</p>
-            <hr style="border: 0; border-top: 1px solid #eee;" />
-            <p><strong>Message:</strong></p>
-            <p style="white-space: pre-wrap;">${input.message}</p>
+          <div style="font-family: sans-serif; padding: 20px; color: #333; background-color: #f9f9f9; border-radius: 10px; border: 1px solid #eee;">
+            <h2 style="color: #9400D3;">Nuevo Mensaje del Formulario</h2>
+            <p>Has recibido un nuevo mensaje a través del formulario de tu portfolio.</p>
+            <hr style="border: 0; border-top: 1px solid #ddd;" />
+            <p><strong>Nombre:</strong> ${input.name}</p>
+            <p><strong>Correo Electrónico:</strong> ${input.email}</p>
+            <p><strong>Mensaje:</strong></p>
+            <div style="background-color: #fff; padding: 15px; border-radius: 5px; border: 1px solid #ddd;">
+              <p style="white-space: pre-wrap; margin: 0;">${input.message}</p>
+            </div>
           </div>
         `,
       });
