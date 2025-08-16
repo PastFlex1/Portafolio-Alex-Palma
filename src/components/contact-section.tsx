@@ -4,7 +4,8 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
-import { useState, useTransition } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { useFormState, useFormStatus } from 'react-dom';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -31,13 +32,32 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import { useToast } from '@/hooks/use-toast';
-import { sendEmail } from '@/ai/flows/send-email-flow';
+import { sendEmailAction } from '@/app/actions';
+
+
+const SubmitButton = () => {
+    const { pending } = useFormStatus();
+    const { t } = useLanguage();
+    return (
+        <Button type="submit" className="w-full !mt-6" size="lg" disabled={pending}>
+            {pending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+            {t('contact.form.submit')}
+        </Button>
+    );
+};
 
 const ContactSection = () => {
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
-  const [isPending, startTransition] = useTransition();
   const { toast } = useToast();
   const { t, language } = useLanguage();
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const initialState = {
+    success: false,
+    error: null,
+  };
+
+  const [state, formAction] = useFormState(sendEmailAction, initialState);
 
   const formSchema = z.object({
     name: z.string().min(2, {
@@ -58,25 +78,24 @@ const ContactSection = () => {
       email: '',
       message: '',
     },
-    key: language,
+    key: language, 
   });
+  
+  useEffect(() => {
+    if (state.success) {
+      setIsSuccessModalOpen(true);
+      form.reset();
+      formRef.current?.reset();
+    }
+    if (state.error) {
+      toast({
+        variant: "destructive",
+        title: "Error al enviar el mensaje",
+        description: state.error,
+      });
+    }
+  }, [state, form, toast]);
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log('Enviando formulario con los siguientes valores:', values);
-    startTransition(async () => {
-      const result = await sendEmail(values);
-      if (result.success) {
-        setIsSuccessModalOpen(true);
-        form.reset();
-      } else {
-        toast({
-          variant: "destructive",
-          title: "Error al enviar el mensaje",
-          description: result.error || "Hubo un problema al enviar el mensaje. Por favor, inténtalo de nuevo.",
-        });
-      }
-    });
-  }
 
   return (
     <>
@@ -102,7 +121,7 @@ const ContactSection = () => {
           <Card className="mx-auto w-full max-w-lg shadow-lg">
               <CardContent className="p-6 sm:p-8">
                   <Form {...form}>
-                      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 text-left">
+                      <form ref={formRef} action={formAction} className="space-y-4 text-left">
                       <FormField
                           control={form.control}
                           name="name"
@@ -110,7 +129,7 @@ const ContactSection = () => {
                           <FormItem>
                               <FormLabel>{t('contact.form.name')}</FormLabel>
                               <FormControl>
-                              <Input placeholder={t('contact.form.name_placeholder')} {...field} disabled={isPending} />
+                              <Input placeholder={t('contact.form.name_placeholder')} {...field} />
                               </FormControl>
                               <FormMessage />
                           </FormItem>
@@ -123,7 +142,7 @@ const ContactSection = () => {
                           <FormItem>
                               <FormLabel>{t('contact.form.email')}</FormLabel>
                               <FormControl>
-                              <Input placeholder={t('contact.form.email_placeholder')} {...field} disabled={isPending} />
+                              <Input placeholder={t('contact.form.email_placeholder')} {...field} />
                               </FormControl>
                               <FormMessage />
                           </FormItem>
@@ -136,16 +155,13 @@ const ContactSection = () => {
                           <FormItem>
                               <FormLabel>{t('contact.form.message')}</FormLabel>
                               <FormControl>
-                              <Textarea placeholder={t('contact.form.message_placeholder')} {...field} rows={5} disabled={isPending} />
+                              <Textarea placeholder={t('contact.form.message_placeholder')} {...field} rows={5} />
                               </FormControl>
                               <FormMessage />
                           </FormItem>
                           )}
                       />
-                      <Button type="submit" className="w-full !mt-6" size="lg" disabled={isPending}>
-                        {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                        {t('contact.form.submit')}
-                      </Button>
+                      <SubmitButton />
                       </form>
                   </Form>
               </CardContent>
