@@ -29,10 +29,6 @@ const sendEmailFlow = ai.defineFlow(
     outputSchema: z.object({ success: z.boolean(), error: z.string().optional() }),
   },
   async (input) => {
-    //
-    // IMPORTANT: Paste your Resend API key here for it to work.
-    // This is not a recommended practice for production, but it will solve the problem in this environment.
-    //
     const apiKey = "re_ha9s1Jay_AcnRPqkdY2YQDP2HrrwifGkC";
 
     if (!apiKey || apiKey === "pega_aqui_tu_api_key_de_resend") {
@@ -41,9 +37,10 @@ const sendEmailFlow = ai.defineFlow(
       return { success: false, error: errorMsg };
     }
 
+    const resend = new Resend(apiKey);
+
     try {
-      const resend = new Resend(apiKey);
-      await resend.emails.send({
+      const { data, error } = await resend.emails.send({
         from: 'Portfolio <onboarding@resend.dev>',
         to: ['past667@gmail.com'],
         subject: `Nuevo mensaje de tu portfolio de parte de: ${input.name}`,
@@ -61,6 +58,12 @@ const sendEmailFlow = ai.defineFlow(
           </div>
         `,
       });
+
+      if (error) {
+        console.error('Resend API Error:', error);
+        return { success: false, error: error.message };
+      }
+
       return { success: true };
     } catch (error) {
       console.error('Error sending email:', error);
@@ -69,3 +72,4 @@ const sendEmailFlow = ai.defineFlow(
     }
   }
 );
+

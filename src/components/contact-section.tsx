@@ -70,8 +70,8 @@ const ContactSection = () => {
       } else {
         toast({
           variant: "destructive",
-          title: "Error",
-          description: "Hubo un problema al enviar el mensaje. Por favor, inténtalo de nuevo.",
+          title: "Error al enviar el mensaje",
+          description: result.error || "Hubo un problema al enviar el mensaje. Por favor, inténtalo de nuevo.",
         });
       }
     });
