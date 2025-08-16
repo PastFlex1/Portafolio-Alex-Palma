@@ -43,6 +43,7 @@ const sendEmailFlow = ai.defineFlow(
       const { data, error } = await resend.emails.send({
         from: 'Portfolio <onboarding@resend.dev>',
         to: ['past6867@gmail.com'],
+        reply_to: input.email,
         subject: `Nuevo mensaje de tu portfolio de parte de: ${input.name}`,
         html: `
           <div style="font-family: sans-serif; padding: 20px; color: #333; background-color: #f9f9f9; border-radius: 10px; border: 1px solid #eee;">
@@ -55,6 +56,8 @@ const sendEmailFlow = ai.defineFlow(
             <div style="background-color: #fff; padding: 15px; border-radius: 5px; border: 1px solid #ddd;">
               <p style="white-space: pre-wrap; margin: 0;">${input.message}</p>
             </div>
+            <hr style="border: 0; border-top: 1px solid #ddd; margin-top: 20px;" />
+            <p style="font-size: 12px; color: #777;">Para responder a este mensaje, simplemente haz clic en "Responder" en tu cliente de correo.</p>
           </div>
         `,
       });
