@@ -42,7 +42,7 @@ const sendEmailFlow = ai.defineFlow(
     try {
       const { data, error } = await resend.emails.send({
         from: 'Portfolio <onboarding@resend.dev>',
-        to: ['past667@gmail.com'],
+        to: ['past6867@gmail.com'],
         subject: `Nuevo mensaje de tu portfolio de parte de: ${input.name}`,
         html: `
           <div style="font-family: sans-serif; padding: 20px; color: #333; background-color: #f9f9f9; border-radius: 10px; border: 1px solid #eee;">
