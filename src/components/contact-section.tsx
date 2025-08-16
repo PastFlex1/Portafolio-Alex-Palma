@@ -4,8 +4,8 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
-import { useState, useEffect, useRef } from 'react';
-import { useFormState, useFormStatus } from 'react-dom';
+import { useState, useEffect, useRef, useActionState } from 'react';
+import { useFormStatus } from 'react-dom';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -57,7 +57,7 @@ const ContactSection = () => {
     error: null,
   };
 
-  const [state, formAction] = useFormState(sendEmailAction, initialState);
+  const [state, formAction] = useActionState(sendEmailAction, initialState);
 
   const formSchema = z.object({
     name: z.string().min(2, {
