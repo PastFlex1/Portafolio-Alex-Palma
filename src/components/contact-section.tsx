@@ -62,6 +62,7 @@ const ContactSection = () => {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
+    console.log('Enviando formulario con los siguientes valores:', values);
     startTransition(async () => {
       const result = await sendEmail(values);
       if (result.success) {
