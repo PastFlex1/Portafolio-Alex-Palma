@@ -31,9 +31,8 @@ export async function sendEmailAction(prevState: any, formData: FormData) {
 
   try {
     const { data, error } = await resend.emails.send({
-      // ⚠️ Reemplaza 'Portfolio <onboarding@resend.dev>' con tu dominio verificado en Resend si el envío falla.
-      // Por ejemplo: 'Portfolio <contacto@tu-dominio-verificado.com>'
-      from: 'Portfolio <onboarding@resend.dev>',
+      // ⚠️ Usando el nuevo dominio verificado. ¡Esto debería funcionar!
+      from: 'Portfolio <contacto@nuevodominio.store>',
       to: ['past6867@gmail.com'],
       subject: `Nuevo mensaje de tu portfolio de parte de: ${name}`,
       reply_to: email,
