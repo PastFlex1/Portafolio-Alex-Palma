@@ -1,3 +1,4 @@
+
 'use server';
 
 import { z } from 'zod';
@@ -9,7 +10,7 @@ const sendEmailSchema = z.object({
   message: z.string().min(10, { message: 'El mensaje debe tener al menos 10 caracteres.' }),
 });
 
-// Initialize Resend with the API key directly
+// Initialize Resend with the API key directly as requested.
 const resend = new Resend('re_ha9s1Jay_AcnRPqkdY2YQDP2HrrwifGkC');
 
 export async function sendEmailAction(prevState: any, formData: FormData) {
@@ -31,7 +32,7 @@ export async function sendEmailAction(prevState: any, formData: FormData) {
 
   try {
     const { data, error } = await resend.emails.send({
-      // ⚠️ Reemplaza 'Portfolio <onboarding@resend.dev>' con tu dominio verificado en Resend.
+      // ⚠️ Reemplaza 'Portfolio <onboarding@resend.dev>' con tu dominio verificado en Resend si el envío falla.
       // Por ejemplo: 'Portfolio <contacto@tu-dominio-verificado.com>'
       from: 'Portfolio <onboarding@resend.dev>',
       to: ['past6867@gmail.com'],
@@ -53,6 +54,7 @@ export async function sendEmailAction(prevState: any, formData: FormData) {
       return { success: false, error: error.message };
     }
 
+    console.log('Email sent successfully:', data);
     return { success: true, error: null };
   } catch (exception) {
     console.error('Error sending email:', exception);
