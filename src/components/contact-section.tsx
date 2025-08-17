@@ -82,6 +82,9 @@ const ContactSection = () => {
   });
   
   useEffect(() => {
+    // Console log to see the state returned by the server action
+    console.log('Form action state:', state);
+
     if (state.success) {
       setIsSuccessModalOpen(true);
       form.reset();
