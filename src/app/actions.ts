@@ -12,7 +12,7 @@ const sendEmailSchema = z.object({
 const resend = new Resend('re_ha9s1Jay_AcnRPqkdY2YQDP2HrrwifGkC');
 
 export async function sendEmailAction(prevState: any, formData: FormData) {
-  const validatedFields = sendEmailJSchema.safeParse({
+  const validatedFields = sendEmailSchema.safeParse({
     name: formData.get('name'),
     email: formData.get('email'),
     message: formData.get('message'),
