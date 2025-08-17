@@ -9,8 +9,8 @@ const sendEmailSchema = z.object({
   message: z.string().min(10, { message: 'El mensaje debe tener al menos 10 caracteres.' }),
 });
 
-// Initialize Resend with the API key from environment variables
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Initialize Resend with the API key directly
+const resend = new Resend('re_ha9s1Jay_AcnRPqkdY2YQDP2HrrwifGkC');
 
 export async function sendEmailAction(prevState: any, formData: FormData) {
   const validatedFields = sendEmailSchema.safeParse({
