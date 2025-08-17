@@ -12,7 +12,7 @@ const sendEmailSchema = z.object({
 const resend = new Resend('re_ha9s1Jay_AcnRPqkdY2YQDP2HrrwifGkC');
 
 export async function sendEmailAction(prevState: any, formData: FormData) {
-  const validatedFields = sendEmailSchema.safeParse({
+  const validatedFields = sendEmailJSchema.safeParse({
     name: formData.get('name'),
     email: formData.get('email'),
     message: formData.get('message'),
@@ -34,18 +34,12 @@ export async function sendEmailAction(prevState: any, formData: FormData) {
       subject: `Nuevo mensaje de tu portfolio de parte de: ${name}`,
       reply_to: email,
       html: `
-        <div style="font-family: sans-serif; padding: 20px; color: #333; background-color: #f9f9f9; border-radius: 10px; border: 1px solid #eee;">
+        <div style="font-family: sans-serif; padding: 20px; color: #333;">
           <h2 style="color: #9400D3;">Nuevo Mensaje del Formulario</h2>
-          <p>Has recibido un nuevo mensaje a través del formulario de tu portfolio.</p>
-          <hr style="border: 0; border-top: 1px solid #ddd;" />
           <p><strong>Nombre:</strong> ${name}</p>
           <p><strong>Correo Electrónico:</strong> ${email}</p>
           <p><strong>Mensaje:</strong></p>
-          <div style="background-color: #fff; padding: 15px; border-radius: 5px; border: 1px solid #ddd;">
-            <p style="white-space: pre-wrap; margin: 0;">${message}</p>
-          </div>
-          <hr style="border: 0; border-top: 1px solid #ddd; margin-top: 20px;" />
-          <p style="font-size: 12px; color: #777;">Para responder a este mensaje, simplemente haz clic en "Responder" en tu cliente de correo.</p>
+          <p style="white-space: pre-wrap; margin: 0; padding: 15px; background-color: #f9f9f9; border-radius: 5px; border: 1px solid #ddd;">${message}</p>
         </div>
       `,
     });
