@@ -1,4 +1,3 @@
-
 'use server';
 
 import { z } from 'zod';
@@ -32,7 +31,7 @@ export async function sendEmailAction(prevState: any, formData: FormData) {
 
   try {
     const { data, error } = await resend.emails.send({
-      from: 'Portfolio <onboarding@resend.dev>',
+      from: 'Portfolio <onboarding@resend.dev>', // ⚠️ Reemplaza con tu dominio verificado, ej: 'Portfolio <contacto@nuevodominio.store>'
       to: ['past6867@gmail.com'],
       subject: `Nuevo mensaje de tu portfolio de parte de: ${name}`,
       reply_to: email,
