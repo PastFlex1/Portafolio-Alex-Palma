@@ -31,7 +31,9 @@ export async function sendEmailAction(prevState: any, formData: FormData) {
 
   try {
     const { data, error } = await resend.emails.send({
-      from: 'Portfolio <onboarding@resend.dev>', // ⚠️ Reemplaza con tu dominio verificado, ej: 'Portfolio <contacto@nuevodominio.store>'
+      // ⚠️ Reemplaza 'Portfolio <onboarding@resend.dev>' con tu dominio verificado en Resend.
+      // Por ejemplo: 'Portfolio <contacto@tu-dominio-verificado.com>'
+      from: 'Portfolio <onboarding@resend.dev>',
       to: ['past6867@gmail.com'],
       subject: `Nuevo mensaje de tu portfolio de parte de: ${name}`,
       reply_to: email,
