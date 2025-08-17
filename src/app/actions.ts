@@ -1,12 +1,13 @@
+
 'use server';
 
 import { z } from 'zod';
 import { Resend } from 'resend';
 
 const sendEmailSchema = z.object({
-  name: z.string().min(2),
-  email: z.string().email(),
-  message: z.string().min(10),
+  name: z.string().min(2, { message: 'El nombre debe tener al menos 2 caracteres.' }),
+  email: z.string().email({ message: 'Por favor, introduce una dirección de correo válida.' }),
+  message: z.string().min(10, { message: 'El mensaje debe tener al menos 10 caracteres.' }),
 });
 
 // Initialize Resend with the API key from environment variables
@@ -20,9 +21,10 @@ export async function sendEmailAction(prevState: any, formData: FormData) {
   });
 
   if (!validatedFields.success) {
+    const errorMessage = validatedFields.error.errors.map(e => e.message).join(', ');
     return {
       success: false,
-      error: 'Invalid form data. Please check your entries.',
+      error: errorMessage,
     };
   }
 
@@ -51,9 +53,9 @@ export async function sendEmailAction(prevState: any, formData: FormData) {
     }
 
     return { success: true, error: null };
-  } catch (error) {
-    console.error('Error sending email:', error);
-    const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred.';
+  } catch (exception) {
+    console.error('Error sending email:', exception);
+    const errorMessage = exception instanceof Error ? exception.message : 'An unknown error occurred.';
     return { success: false, error: errorMessage };
   }
 }
