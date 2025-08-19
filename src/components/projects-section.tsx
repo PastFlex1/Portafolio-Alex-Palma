@@ -38,7 +38,7 @@ const ProjectsSection = () => {
       description: t('projects.webDesign.project4.description'),
       image: '/Bellefit.png',
       imageHint: 'fitness app ui',
-      liveUrl: 'https://www.figma.com/design/24sK1bI0sToSAbLp1gN3bZ/Untitled?node-id=0-1&m=dev&t=Y4hGkYbrRaqt5nL8-1',
+      liveUrl: 'https://www.figma.com/design/YaW8bBRxNIo9yVZh0AxZBR/Untitled?node-id=0-1&m=dev&t=Oo9gBjRkao3SMTgw-1',
     },
   ];
 
@@ -47,6 +47,7 @@ const ProjectsSection = () => {
       title: t('projects.webDevelopment.project1.title'),
       description: t('projects.webDevelopment.project1.description'),
       image: '/clima genius.png',
+      imageHint: 'weather app interface',
       githubUrl: 'https://github.com/PastFlex1/clima-genius',
       liveUrl: 'https://climagen.netlify.app/',
     },
