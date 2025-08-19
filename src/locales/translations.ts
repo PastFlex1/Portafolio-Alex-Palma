@@ -108,8 +108,8 @@ const translations = {
           description: 'Un prototipo de interfaz de usuario vibrante y atractivo para un juego de cocina móvil, diseñado en Figma con un enfoque en interacciones divertidas y una estética lúdica.',
         },
         project4: {
-          title: 'UI Kit para Aplicación Móvil',
-          description: 'Creación de un sistema de diseño completo en Figma, incluyendo componentes, tipografía y paleta de colores.',
+          title: 'Bellefit - Prototipo de App Fitness',
+          description: 'Un prototipo de alta fidelidad para una aplicación de fitness, enfocado en una interfaz motivadora y un seguimiento de progreso intuitivo.',
         },
       },
       github: 'GitHub',
@@ -254,8 +254,8 @@ const translations = {
           description: 'A vibrant and engaging UI prototype for a mobile cooking game, designed in Figma with a focus on fun interactions and a playful aesthetic.',
         },
         project4: {
-          title: 'UI Kit for Mobile Application',
-          description: 'Creation of a complete design system in Figma, including components, typography, and color palette.',
+          title: 'Bellefit - Fitness App Prototype',
+          description: 'A high-fidelity prototype for a fitness application, focused on a motivating interface and intuitive progress tracking.',
         },
       },
       github: 'GitHub',

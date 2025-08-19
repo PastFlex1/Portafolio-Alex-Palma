@@ -36,9 +36,9 @@ const ProjectsSection = () => {
     {
       title: t('projects.webDesign.project4.title'),
       description: t('projects.webDesign.project4.description'),
-      image: 'https://placehold.co/600x400.png',
-      imageHint: 'mobile app ui',
-      liveUrl: '#',
+      image: '/Bellefit.png',
+      imageHint: 'fitness app ui',
+      liveUrl: 'https://www.figma.com/design/24sK1bI0sToSAbLp1gN3bZ/Untitled?node-id=0-1&m=dev&t=Y4hGkYbrRaqt5nL8-1',
     },
   ];
 
