@@ -67,14 +67,6 @@ const ProjectsSection = () => {
       githubUrl: 'https://github.com/PastFlex1/Programa-bienestar-y-salud.git',
       liveUrl: 'https://studio--zenith-ue6jq.us-central1.hosted.app/auth/login',
     },
-    {
-        title: t('projects.webDevelopment.project4.title'),
-        description: t('projects.webDevelopment.project4.description'),
-        image: 'https://placehold.co/600x400.png',
-        imageHint: 'saas application interface',
-        githubUrl: 'https://github.com/PastFlex1',
-        liveUrl: '#',
-      },
   ];
 
   const renderProjectGrid = (projects: any[], isDesign: boolean) => (
