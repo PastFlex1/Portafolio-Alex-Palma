@@ -6,7 +6,16 @@ import { useLanguage } from '@/context/language-context';
 import SplitText from './split-text';
 
 const HeroSection = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+
+  const cvPath = language === 'es' 
+    ? '/Hoja de vida alex palma ing software.pdf' 
+    : '/Alex Palma - CV - ENGLISH- version.pdf';
+  
+  const cvDownloadName = language === 'es'
+    ? 'CV-Alex-Palma-ES.pdf'
+    : 'CV-Alex-Palma-EN.pdf';
+
   return (
     <section id="home" className="relative flex h-screen w-full flex-col items-center justify-center text-center">
       <div className="container px-4 md:px-6 z-10">
@@ -25,12 +34,12 @@ const HeroSection = () => {
               <Link href="#contact">
                 <Button size="lg">{t('hero.cta')}</Button>
               </Link>
-              <Link href="/resume.pdf" download="CV-AlexPalma.pdf">
+              <a href={cvPath} download={cvDownloadName}>
                 <Button size="lg" variant="secondary">
                     <Download className="mr-2 h-5 w-5" />
                     {t('hero.resume')}
                 </Button>
-              </Link>
+              </a>
             </div>
           </div>
         </div>

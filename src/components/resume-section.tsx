@@ -5,7 +5,16 @@ import { useLanguage } from '@/context/language-context';
 import SplitText from './split-text';
 
 const ResumeSection = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+
+  const cvPath = language === 'es' 
+    ? '/Hoja de vida alex palma ing software.pdf' 
+    : '/Alex Palma - CV - ENGLISH- version.pdf';
+  
+  const cvDownloadName = language === 'es'
+    ? 'CV-Alex-Palma-ES.pdf'
+    : 'CV-Alex-Palma-EN.pdf';
+
   return (
     <section id="resume" className="w-full py-24 md:py-32">
       <div className="container mx-auto px-4 md:px-6">
@@ -26,15 +35,12 @@ const ResumeSection = () => {
               {t('resume.subtitle')}
             </p>
           </div>
-          <a href="/resume.pdf" download="CV-AlexPalma.pdf">
+          <a href={cvPath} download={cvDownloadName}>
             <Button size="lg" className="mt-6">
               <Download className="mr-2 h-5 w-5" />
               {t('resume.download')}
             </Button>
           </a>
-          <p className="text-xs text-muted-foreground mt-2">
-            {t('resume.note')}
-          </p>
         </div>
       </div>
     </section>
