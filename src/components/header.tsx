@@ -11,6 +11,7 @@ import { ThemeToggle } from './theme-toggle';
 import {
   Sheet,
   SheetContent,
+  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
 
@@ -100,6 +101,7 @@ const Header = () => {
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[280px]">
+                <SheetTitle><span className="sr-only">Mobile Menu</span></SheetTitle>
                 <div className="flex flex-col h-full">
                   <div className="flex items-center justify-between p-4 border-b">
                     <Link href="/" onClick={handleMobileMenuLinkClick} className="flex items-center gap-2" aria-label="Volver al inicio">
