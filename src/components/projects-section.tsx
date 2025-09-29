@@ -81,7 +81,7 @@ const ProjectsSection = () => {
       description: t('projects.webDevelopment.project4.description'),
       image: '/JWC.png',
       imageHint: 'billing system dashboard',
-      githubUrl: '#',
+      githubUrl: 'https://github.com/PastFlex1/jwc-flowers.git',
       liveUrl: 'https://jwc-flowers.vercel.app',
     },
     {
@@ -89,7 +89,7 @@ const ProjectsSection = () => {
       description: t('projects.webDevelopment.project5.description'),
       image: '/DevBlog.png',
       imageHint: 'developer blog interface',
-      githubUrl: '#',
+      githubUrl: 'https://github.com/restoker/Devtalles_Blog_Qwerty_Team_Frontend',
       liveUrl: 'https://devtalles-blog-qwerty-team-frontend.vercel.app/',
     },
   ];
@@ -131,7 +131,7 @@ const ProjectsSection = () => {
                           <h3 className="font-headline text-xl font-bold mb-2">{project.title}</h3>
                           <p className="text-muted-foreground text-sm mb-4 min-h-[40px] flex-grow">{project.description}</p>
                           <div className="flex justify-start gap-4 mt-auto">
-                              {!isDesign && project.githubUrl && (
+                              {!isDesign && project.githubUrl && project.githubUrl !== '#' && (
                                 <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                                     <Button variant="outline" size="sm">
                                     <Github className="mr-2 h-4 w-4" />
