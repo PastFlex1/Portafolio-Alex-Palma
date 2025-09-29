@@ -1,4 +1,3 @@
-
 'use client';
 import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
@@ -21,34 +20,20 @@ const SplitText = ({
   textAlign = "center",
   onLetterAnimationComplete,
 }) => {
-  const ref = useRef(null);
-  const animationCompletedRef = useRef(false);
-  const scrollTriggerRef = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (typeof window === "undefined" || !ref.current || !text) return;
+    if (!ref.current || !text) return;
 
     const el = ref.current;
     
-    // Hide parent element initially to prevent flash of unstyled text
-    gsap.set(el, { visibility: 'hidden' });
-    
-    animationCompletedRef.current = false;
+    // Ensure the element is ready for splitting
+    gsap.set(el, { autoAlpha: 1 });
 
-    const absoluteLines = splitType === "lines";
-    if (absoluteLines) el.style.position = "relative";
-
-    let splitter;
-    try {
-      splitter = new GSAPSplitText(el, {
-        type: splitType,
-        absolute: absoluteLines,
-        linesClass: "split-line",
-      });
-    } catch (error) {
-      console.error("Failed to create SplitText:", error);
-      return;
-    }
+    const splitter = new GSAPSplitText(el, {
+      type: splitType,
+      linesClass: "split-line",
+    });
 
     let targets;
     switch (splitType) {
@@ -59,23 +44,14 @@ const SplitText = ({
         targets = splitter.words;
         break;
       case "chars":
-        targets = splitter.chars;
-        break;
       default:
         targets = splitter.chars;
+        break;
     }
 
     if (!targets || targets.length === 0) {
-      console.warn("No targets found for SplitText animation");
-      if (splitter) {
-        splitter.revert();
-      }
       return;
     }
-
-    targets.forEach((t) => {
-      t.style.willChange = "transform, opacity";
-    });
 
     const startPct = (1 - threshold) * 100;
     const marginMatch = /^(-?\d+(?:\.\d+)?)(px|em|rem|%)?$/.exec(rootMargin);
@@ -84,46 +60,30 @@ const SplitText = ({
     const sign = marginValue < 0 ? `-=${Math.abs(marginValue)}${marginUnit}` : `+=${marginValue}${marginUnit}`;
     const start = `top ${startPct}%${sign}`;
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: el,
-        start,
-        toggleActions: "play none none none",
-        once: true,
-        onToggle: (self) => {
-          scrollTriggerRef.current = self;
-        },
-      },
-      smoothChildTiming: true,
-      onComplete: () => {
-        animationCompletedRef.current = true;
-        gsap.set(targets, {
-          ...to,
-          clearProps: "willChange",
-          immediateRender: true,
-        });
-        onLetterAnimationComplete?.();
-      },
-    });
-
-    // Make parent visible right before animation starts
-    tl.set(el, { visibility: 'visible' });
-
-    tl.from(targets, {
+    const tl = gsap.from(targets, {
       ...from,
       duration,
       ease,
       stagger: delay / 1000,
-      force3D: true,
+      scrollTrigger: {
+        trigger: el,
+        start: start,
+        toggleActions: "play none none none",
+        once: true,
+      },
+      onComplete: () => {
+        onLetterAnimationComplete?.();
+      },
     });
 
+    // Cleanup function
     return () => {
-      tl.kill();
-      if (scrollTriggerRef.current) {
-        scrollTriggerRef.current.kill();
-        scrollTriggerRef.current = null;
+      // Kill the timeline and its ScrollTrigger instance
+      if (tl.scrollTrigger) {
+        tl.scrollTrigger.kill();
       }
-      gsap.killTweensOf(targets);
+      tl.kill();
+      // Revert the SplitText instance to restore the original HTML
       if (splitter) {
         splitter.revert();
       }
@@ -135,12 +95,9 @@ const SplitText = ({
     ease,
     splitType,
     from,
-    to,
     threshold,
     rootMargin,
     onLetterAnimationComplete,
-    className,
-    textAlign
   ]);
 
   return (
@@ -150,7 +107,7 @@ const SplitText = ({
       style={{
         textAlign,
         wordWrap: "break-word",
-        visibility: 'hidden', // Initially hide the element
+        visibility: 'hidden', // Hide until animation starts via autoAlpha
       }}
     >
       {text}
