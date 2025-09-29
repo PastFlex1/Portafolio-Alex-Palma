@@ -90,8 +90,12 @@ const translations = {
           description: 'App de bienestar con meditación, seguimiento de hábitos y diario personal para promover la calma y el autoconocimiento.',
         },
         project4: {
-          title: 'SaaS para Gestión de Proyectos',
-          description: 'Interfaz para una aplicación SaaS, centrándome en componentes reutilizables y un estado global eficiente con Zustand.',
+          title: 'JWC Flowers - Sistema de Facturación',
+          description: 'Un sistema de facturación a medida para una empresa de flores, optimizando el proceso de ventas y seguimiento de pedidos.',
+        },
+        project5: {
+          title: 'Blog para DevTalles Hackathon',
+          description: 'Blog desarrollado en equipo durante una hackathon para DevTalles, enfocado en la creación de contenido para desarrolladores.',
         },
       },
       webDesign: {
@@ -236,8 +240,12 @@ const translations = {
           description: 'A wellness app with meditation, habit tracking, and a personal diary to promote calm and self-awareness.',
         },
         project4: {
-          title: 'SaaS for Project Management',
-          description: 'Interface for a SaaS application, focusing on reusable components and efficient global state with Zustand.',
+          title: 'JWC Flowers - Billing System',
+          description: 'A custom billing system for a flower company, optimizing the sales process and order tracking.',
+        },
+        project5: {
+          title: 'Blog for DevTalles Hackathon',
+          description: 'A blog developed as a team during a hackathon for DevTalles, focused on creating content for developers.',
         },
       },
       webDesign: {
