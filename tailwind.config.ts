@@ -113,6 +113,9 @@ export default {
         'bob': 'bob 3s ease-in-out infinite',
         'tilt': 'tilt 10s infinite linear',
       },
+      basis: {
+        '9/10': '90%',
+      }
     },
   },
   plugins: [require('tailwindcss-animate')],
