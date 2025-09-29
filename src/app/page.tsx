@@ -10,37 +10,40 @@ import ContactSection from '@/components/contact-section';
 import Footer from '@/components/footer';
 import Particles from '@/components/particles';
 import ScrollVelocity from '@/components/scroll-velocity';
+import SmoothScroll from '@/components/smooth-scroll';
 
 export default function Home() {
   return (
-    <div className="bg-background flex flex-col min-h-screen">
-      <Particles 
-            className="fixed inset-0 -z-10 h-full w-full"
-            particleColors={['#9400D3', '#FF69B4', '#E6E6FA']}
-            particleCount={500}
-            particleBaseSize={30}
-            particleSpread={15}
-            speed={0.05}
-      />
-      <div className="fixed inset-0 -z-10 h-full w-full bg-gradient-to-b from-background/50 via-background/80 to-background"></div>
-
-      <Header />
-      <main className="flex-grow">
-        <HeroSection />
-        <AboutSection />
-        <SkillsSection />
-        <ScrollVelocity 
-            texts={["- Frontend Developer -", "- UI/UX Designer -"]}
-            velocity={50}
-            className="font-headline text-primary"
-            scrollerClassName="md:text-[7rem] md:leading-[7rem]"
+    <SmoothScroll>
+      <div className="bg-background flex flex-col min-h-screen">
+        <Particles 
+              className="fixed inset-0 -z-10 h-full w-full"
+              particleColors={['#FFFFFF']}
+              particleCount={500}
+              particleBaseSize={30}
+              particleSpread={15}
+              speed={0.05}
         />
-        <ExperienceTimelineSection />
-        <ProjectsSection />
-        <ResumeSection />
-        <ContactSection />
-      </main>
-      <Footer />
-    </div>
+        <div className="fixed inset-0 -z-10 h-full w-full bg-gradient-to-b from-background/50 via-background/80 to-background"></div>
+
+        <Header />
+        <main className="flex-grow">
+          <HeroSection />
+          <AboutSection />
+          <SkillsSection />
+          <ScrollVelocity 
+              texts={["- Frontend Developer -", "- UI/UX Designer -"]}
+              velocity={50}
+              className="font-headline text-primary"
+              scrollerClassName="md:text-[7rem] md:leading-[7rem]"
+          />
+          <ExperienceTimelineSection />
+          <ProjectsSection />
+          <ResumeSection />
+          <ContactSection />
+        </main>
+        <Footer />
+      </div>
+    </SmoothScroll>
   );
 }
