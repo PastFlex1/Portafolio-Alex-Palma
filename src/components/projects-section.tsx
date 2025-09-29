@@ -7,15 +7,6 @@ import { useLanguage } from '@/context/language-context';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import TiltedCard from './tilted-card';
 import SplitText from './split-text';
-import Autoplay from "embla-carousel-autoplay"
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel"
-import React from 'react';
 
 const ProjectsSection = () => {
   const { t } = useLanguage();
@@ -76,93 +67,56 @@ const ProjectsSection = () => {
       githubUrl: 'https://github.com/PastFlex1/Programa-bienestar-y-salud.git',
       liveUrl: 'https://studio--zenith-ue6jq.us-central1.hosted.app/auth/login',
     },
-    {
-      title: t('projects.webDevelopment.project4.title'),
-      description: t('projects.webDevelopment.project4.description'),
-      image: '/JWC.png',
-      imageHint: 'billing system dashboard',
-      githubUrl: '#',
-      liveUrl: 'https://jwc-flowers.vercel.app',
-    },
-    {
-      title: t('projects.webDevelopment.project5.title'),
-      description: t('projects.webDevelopment.project5.description'),
-      image: '/DevBlog.png',
-      imageHint: 'developer blog interface',
-      githubUrl: '#',
-      liveUrl: 'https://devtalles-blog-qwerty-team-frontend.vercel.app/',
-    },
   ];
-  
-  const plugin = React.useRef(
-    Autoplay({ delay: 3000, stopOnInteraction: true })
-  )
 
-  const renderProjectSlider = (projects: any[], isDesign: boolean) => (
-    <Carousel
-      plugins={[plugin.current]}
-      opts={{
-        align: "start",
-        loop: true,
-      }}
-      className="w-full mx-auto pt-12"
-      onMouseEnter={plugin.current.stop}
-      onMouseLeave={plugin.current.reset}
-    >
-      <CarouselContent>
-        {projects.map((project, index) => (
-          <CarouselItem key={index} className="pl-4 basis-full md:basis-1/2 lg:basis-1/3">
-            <div className="h-full p-1">
-              <TiltedCard>
-                <div className="relative p-0.5 group rounded-xl h-full">
-                  <div className="absolute transition-all duration-1000 opacity-0 -inset-px bg-gradient-to-r from-primary via-primary to-primary rounded-xl blur-lg group-hover:opacity-70 group-hover:duration-200 animate-tilt"></div>
-                  <Card className="relative overflow-hidden rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full bg-card">
-                      <div className="relative h-[250px] w-full overflow-hidden rounded-t-xl">
-                          <Image
-                              src={project.image}
-                              alt={`Captura de pantalla de ${project.title}`}
-                              fill
-                              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                              className="object-cover transition-transform duration-300 group-hover:scale-105"
-                              {...(project.imageHint ? { 'data-ai-hint': project.imageHint } : {})}
-                          />
-                      </div>
-                      <div className="p-6 flex-grow flex flex-col">
-                          <h3 className="font-headline text-xl font-bold mb-2">{project.title}</h3>
-                          <p className="text-muted-foreground text-sm mb-4 min-h-[40px] flex-grow">{project.description}</p>
-                          <div className="flex justify-start gap-4 mt-auto">
-                              {!isDesign && project.githubUrl && (
-                                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                                    <Button variant="outline" size="sm">
-                                    <Github className="mr-2 h-4 w-4" />
-                                    {t('projects.github')}
-                                    </Button>
-                                </a>
-                              )}
-                              {project.liveUrl && project.liveUrl !== '#' && (
-                                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                                    <Button size="sm">
-                                    <ExternalLink className="mr-2 h-4 w-4" />
-                                    {t('projects.demo')}
-                                    </Button>
-                                </a>
-                              )}
-                          </div>
-                      </div>
-                  </Card>
+  const renderProjectGrid = (projects: any[], isDesign: boolean) => (
+    <div className="mx-auto grid gap-8 pt-12 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
+      {projects.map((project) => (
+        <TiltedCard key={project.title}>
+          <div className="relative p-0.5 group rounded-xl h-full">
+            <div className="absolute transition-all duration-1000 opacity-0 -inset-px bg-gradient-to-r from-pink-500 via-purple-500 to-fuchsia-500 rounded-xl blur-lg group-hover:opacity-70 group-hover:duration-200 animate-tilt"></div>
+            <Card className="relative overflow-hidden rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full bg-card">
+                <div className="relative h-[250px] w-full overflow-hidden rounded-t-xl">
+                    <Image
+                        src={project.image}
+                        alt={`Captura de pantalla de ${project.title}`}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                        {...(project.imageHint ? { 'data-ai-hint': project.imageHint } : {})}
+                    />
                 </div>
-              </TiltedCard>
-            </div>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-      <CarouselPrevious className="hidden md:flex absolute left-0 md:left-[-50px] top-1/2 -translate-y-1/2" />
-      <CarouselNext className="hidden md:flex absolute right-0 md:right-[-50px] top-1/2 -translate-y-1/2" />
-    </Carousel>
+                <div className="p-6 flex-grow flex flex-col">
+                    <h3 className="font-headline text-xl font-bold mb-2">{project.title}</h3>
+                    <p className="text-muted-foreground text-sm mb-4 min-h-[40px] flex-grow">{project.description}</p>
+                    <div className="flex justify-start gap-4 mt-auto">
+                        {!isDesign && project.githubUrl && (
+                          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                              <Button variant="outline" size="sm">
+                              <Github className="mr-2 h-4 w-4" />
+                              {t('projects.github')}
+                              </Button>
+                          </a>
+                        )}
+                        {project.liveUrl && project.liveUrl !== '#' && (
+                          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                              <Button size="sm">
+                              <ExternalLink className="mr-2 h-4 w-4" />
+                              {t('projects.demo')}
+                              </Button>
+                          </a>
+                        )}
+                    </div>
+                </div>
+            </Card>
+          </div>
+        </TiltedCard>
+      ))}
+    </div>
   );
 
   return (
-    <section id="projects" className="w-full py-24 md:py-32 overflow-hidden">
+    <section id="projects" className="w-full py-24 md:py-32">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-3">
@@ -183,16 +137,16 @@ const ProjectsSection = () => {
           </div>
         </div>
 
-        <Tabs defaultValue="development" className="w-full max-w-7xl mx-auto pt-10">
-          <TabsList className="grid w-full grid-cols-2 max-w-md mx-auto">
+        <Tabs defaultValue="development" className="w-full max-w-4xl mx-auto pt-10">
+          <TabsList className="grid w-full grid-cols-2">
             <TabsTrigger value="development">{t('projects.tabs.development')}</TabsTrigger>
             <TabsTrigger value="design">{t('projects.tabs.design')}</TabsTrigger>
           </TabsList>
           <TabsContent value="development">
-            {renderProjectSlider(webDevelopmentProjects, false)}
+            {renderProjectGrid(webDevelopmentProjects, false)}
           </TabsContent>
           <TabsContent value="design">
-            {renderProjectSlider(webDesignProjects, true)}
+            {renderProjectGrid(webDesignProjects, true)}
           </TabsContent>
         </Tabs>
 
