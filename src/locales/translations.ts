@@ -91,7 +91,7 @@ const translations = {
         },
         project4: {
           title: 'JWC Flowers - Sistema de Facturación',
-          description: 'Un sistema de facturación a medida para una empresa de flores, optimizando el proceso de ventas y seguimiento de pedidos.',
+          description: 'Un sistema de facturación a medida para una empresa de flores, optimizando el proceso de ventas y seguimiento de pedidos. Para ingresar usuario: admin y contraseña admin123',
         },
         project5: {
           title: 'Blog para DevTalles Hackathon',
@@ -241,7 +241,7 @@ const translations = {
         },
         project4: {
           title: 'JWC Flowers - Billing System',
-          description: 'A custom billing system for a flower company, optimizing the sales process and order tracking.',
+          description: 'A custom billing system for a flower company, optimizing the sales process and order tracking. Username: admin and password: admin123 to log in',
         },
         project5: {
           title: 'Blog for DevTalles Hackathon',
